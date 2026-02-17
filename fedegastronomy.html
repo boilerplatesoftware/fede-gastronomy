@@ -1,0 +1,2128 @@
+<!doctype html >
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"
+      class="">
+<head>
+    <meta charset="utf-8">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    window._currentDevice = 'desktop';
+    window.Parameters = window.Parameters || {
+        HomeUrl: 'https://fedegastronomy.com/',
+        AccountUUID: '943ad66cdbd54c9d9eb1ff6a3c01663d',
+        SystemID: 'US_DIRECT_PRODUCTION',
+        SiteAlias: 'fac8700a',
+        SiteType: atob('RFVEQU9ORQ=='),
+        PublicationDate: 'Wed Jan 28 11:02:16 UTC 2026',
+        ExternalUid: null,
+        IsSiteMultilingual: true,
+        InitialPostAlias: '',
+        InitialPostPageUuid: '',
+        InitialDynamicItem: '',
+        DynamicPageInfo: {
+            isDynamicPage: false,
+            base64JsonRowData: 'null',
+        },
+        InitialPageAlias: 'home',
+        InitialPageUuid: 'c2db0b74aa54457c89a9d6b044c774c9',
+        InitialPageId: '1196911820',
+        InitialEncodedPageAlias: 'aG9tZQ==',
+        InitialHeaderUuid: 'fbec6a519431441396b85eb5ccb3bbc9',
+        CurrentPageUrl: '',
+        IsCurrentHomePage: true,
+        AllowAjax: false,
+        AfterAjaxCommand: null,
+        HomeLinkText: 'Back To Home',
+        UseGalleryModule: false,
+        CurrentThemeName: 'Layout Theme',
+        ThemeVersion: '500000',
+        DefaultPageAlias: '',
+        RemoveDID: true,
+        WidgetStyleID: null,
+        IsHeaderFixed: false,
+        IsHeaderSkinny: false,
+        IsBfs: true,
+        StorePageAlias: 'null',
+        StorePagesUrls: 'e30=',
+        IsNewStore: 'false',
+        StorePath: '',
+        StoreId: 'null',
+        StoreVersion: 0,
+        StoreBaseUrl: '',
+        StoreCleanUrl: true,
+        StoreDisableScrolling: true,
+        IsStoreSuspended: false,
+        HasCustomDomain: true,
+        SimpleSite: false,
+        showCookieNotification: false,
+        cookiesNotificationMarkup: 'null',
+        translatedPageUrl: '',
+        isFastMigrationSite: false,
+        sidebarPosition: 'NA',
+        currentLanguage: 'en',
+        currentLocale: 'en',
+        NavItems: '{}',
+        errors: {
+            general: 'There was an error connecting to the page.<br/> Make sure you are not offline.',
+            password: 'Incorrect name/password combination',
+            tryAgain: 'Try again'
+        },
+        NavigationAreaParams: {
+            ShowBackToHomeOnInnerPages: true,
+            NavbarSize: 6,
+            NavbarLiveHomePage: 'https://fedegastronomy.com/',
+            BlockContainerSelector: '.dmBody',
+            NavbarSelector: '#dmNav:has(a)',
+            SubNavbarSelector: '#subnav_main'
+        },
+        hasCustomCode: true,
+        planID: '7',
+        customTemplateId: 'null',
+        siteTemplateId: 'null',
+        productId: 'DM_DIRECT',
+        disableTracking: false,
+        pageType: 'FROM_SCRATCH',
+        isRuntimeServer: true,
+        isInEditor: false,
+        hasNativeStore: false,
+        defaultLang: 'en',
+        hamburgerMigration: null,
+        isFlexSite: false
+    };
+
+    window.Parameters.LayoutID = {};
+    window.Parameters.LayoutID[window._currentDevice] = 9;
+    window.Parameters.LayoutVariationID = {};
+    window.Parameters.LayoutVariationID[window._currentDevice] = 5;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Injecting site-wide to the head -->
+
+
+
+
+<!-- End Injecting site-wide to the head -->
+
+<!-- Inject secured cdn script -->
+
+
+<!-- ========= Meta Tags ========= -->
+<!-- PWA settings -->
+<script>
+    function toHash(str) {
+        var hash = 5381, i = str.length;
+        while (i) {
+            hash = hash * 33 ^ str.charCodeAt(--i)
+        }
+        return hash >>> 0
+    }
+</script>
+<script>
+    (function (global) {
+    //const cacheKey = global.cacheKey;
+    const isOffline = 'onLine' in navigator && navigator.onLine === false;
+    const hasServiceWorkerSupport = 'serviceWorker' in navigator;
+    if (isOffline) {
+        console.log('offline mode');
+    }
+    if (!hasServiceWorkerSupport) {
+        console.log('service worker is not supported');
+    }
+    if (hasServiceWorkerSupport && !isOffline) {
+        window.addEventListener('load', function () {
+            const serviceWorkerPath = '/runtime-service-worker.js?v=3';
+            navigator.serviceWorker
+                .register(serviceWorkerPath, { scope: './' })
+                .then(
+                    function (registration) {
+                        // Registration was successful
+                        console.log(
+                            'ServiceWorker registration successful with scope: ',
+                            registration.scope
+                        );
+                    },
+                    function (err) {
+                        // registration failed :(
+                        console.log('ServiceWorker registration failed: ', err);
+                    }
+                )
+                .catch(function (err) {
+                    console.log(err);
+                });
+        });
+
+        // helper function to refresh the page
+        var refreshPage = (function () {
+            var refreshing;
+            return function () {
+                if (refreshing) return;
+                // prevent multiple refreshes
+                var refreshkey = 'refreshed' + location.href;
+                var prevRefresh = localStorage.getItem(refreshkey);
+                if (prevRefresh) {
+                    localStorage.removeItem(refreshkey);
+                    if (Date.now() - prevRefresh < 30000) {
+                        return; // dont go into a refresh loop
+                    }
+                }
+                refreshing = true;
+                localStorage.setItem(refreshkey, Date.now());
+                console.log('refereshing page');
+                window.location.reload();
+            };
+        })();
+
+        function messageServiceWorker(data) {
+            return new Promise(function (resolve, reject) {
+                if (navigator.serviceWorker.controller) {
+                    var worker = navigator.serviceWorker.controller;
+                    var messageChannel = new MessageChannel();
+                    messageChannel.port1.onmessage = replyHandler;
+                    worker.postMessage(data, [messageChannel.port2]);
+                    function replyHandler(event) {
+                        resolve(event.data);
+                    }
+                } else {
+                    resolve();
+                }
+            });
+        }
+    }
+})(window);
+</script>
+<!-- Add manifest -->
+<!-- End PWA settings -->
+
+
+
+<link rel="canonical" href="https://www.fedegastronomy.com/">
+
+<meta id="view" name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=5, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<!--Add favorites icons-->
+
+<link rel="apple-touch-icon"
+      href="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fedegastronomylogo_white-copy-7440c99e.jpg"/>
+
+<link rel="icon" type="image/x-icon" href="https://irp.cdn-website.com/fac8700a/site_favicon_16_1634851422660.ico"/>
+
+<!-- End favorite icons -->
+<link rel="preconnect" href="https://lirp.cdn-website.com/"/>
+
+
+
+<!-- render the required CSS and JS in the head section -->
+<script id='d-js-dmapi'>
+    window.SystemID = 'US_DIRECT_PRODUCTION';
+
+    if (!window.dmAPI) {
+        window.dmAPI = {
+            registerExternalRuntimeComponent: function () {
+            },
+            getCurrentDeviceType: function () {
+                return window._currentDevice;
+            },
+            runOnReady: (ns, fn) => {
+                const safeFn = dmAPI.toSafeFn(fn);
+                ns = ns || 'global_' + Math.random().toString(36).slice(2, 11);
+                const eventName = 'afterAjax.' + ns;
+
+                if (document.readyState === 'complete') {
+                    $.DM.events.off(eventName).on(eventName, safeFn);
+                    setTimeout(function () {
+                        safeFn({
+                            isAjax: false,
+                        });
+                    }, 0);
+                } else {
+                    window?.waitForDeferred?.('dmAjax', () => {
+                        $.DM.events.off(eventName).on(eventName, safeFn);
+                        safeFn({
+                            isAjax: false,
+                        });
+                    });
+                }
+            },
+            toSafeFn: (fn) => {
+                if (fn?.safe) {
+                    return fn;
+                }
+                const safeFn = function (...args) {
+                    try {
+                        return fn?.apply(null, args);
+                    } catch (e) {
+                        console.log('function failed ' + e.message);
+                    }
+                };
+                safeFn.safe = true;
+                return safeFn;
+            }
+        };
+    }
+
+    if (!window.requestIdleCallback) {
+        window.requestIdleCallback = function (fn) {
+            setTimeout(fn, 0);
+        }
+    }
+</script>
+
+<!-- loadCSS function header.jsp-->
+
+
+
+
+
+
+<script id="d-js-load-css">
+/**
+ * There are a few <link> tags with CSS resource in them that are preloaded in the page
+ * in each of those there is a "onload" handler which invokes the loadCSS callback
+ * defined here.
+ * We are monitoring 3 main CSS files - the runtime, the global and the page.
+ * When each load we check to see if we can append them all in a batch. If threre
+ * is no page css (which may happen on inner pages) then we do not wait for it
+ */
+(function () {
+  let cssLinks = {};
+  function loadCssLink(link) {
+    link.onload = null;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+  }
+  
+    function checkCss() {
+      const pageCssLink = document.querySelector("[id*='CssLink']");
+      const widgetCssLink = document.querySelector("[id*='widgetCSS']");
+
+        if (cssLinks && cssLinks.runtime && cssLinks.global && (!pageCssLink || cssLinks.page) && (!widgetCssLink || cssLinks.widget)) {
+            const storedRuntimeCssLink = cssLinks.runtime;
+            const storedPageCssLink = cssLinks.page;
+            const storedGlobalCssLink = cssLinks.global;
+            const storedWidgetCssLink = cssLinks.widget;
+
+            storedGlobalCssLink.disabled = true;
+            loadCssLink(storedGlobalCssLink);
+
+            if (storedPageCssLink) {
+                storedPageCssLink.disabled = true;
+                loadCssLink(storedPageCssLink);
+            }
+
+            if(storedWidgetCssLink) {
+                storedWidgetCssLink.disabled = true;
+                loadCssLink(storedWidgetCssLink);
+            }
+
+            storedRuntimeCssLink.disabled = true;
+            loadCssLink(storedRuntimeCssLink);
+
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    storedRuntimeCssLink.disabled = false;
+                    storedGlobalCssLink.disabled = false;
+                    if (storedPageCssLink) {
+                      storedPageCssLink.disabled = false;
+                    }
+                    if (storedWidgetCssLink) {
+                      storedWidgetCssLink.disabled = false;
+                    }
+                    // (SUP-4179) Clear the accumulated cssLinks only when we're
+                    // sure that the document has finished loading and the document 
+                    // has been parsed.
+                    if(document.readyState === 'interactive') {
+                      cssLinks = null;
+                    }
+                }, 0);
+            });
+        }
+    }
+  
+
+  function loadCSS(link) {
+    try {
+      var urlParams = new URLSearchParams(window.location.search);
+      var noCSS = !!urlParams.get("nocss");
+      var cssTimeout = urlParams.get("cssTimeout") || 0;
+
+      if (noCSS) {
+        return;
+      }
+      if (link.href && link.href.includes("d-css-runtime")) {
+        cssLinks.runtime = link;
+        checkCss();
+      } else if (link.id === "siteGlobalCss") {
+        cssLinks.global = link;
+        checkCss();
+      } 
+      
+      else if (link.id && link.id.includes("CssLink")) {
+        cssLinks.page = link;
+        checkCss();
+      } else if (link.id && link.id.includes("widgetCSS")) {
+        cssLinks.widget = link;
+        checkCss();
+      }
+      
+      else {
+        requestIdleCallback(function () {
+          window.setTimeout(function () {
+            loadCssLink(link);
+          }, parseInt(cssTimeout, 10));
+        });
+      }
+    } catch (e) {
+      throw e
+    }
+  }
+  window.loadCSS = window.loadCSS || loadCSS;
+})();
+</script>
+
+
+
+<script data-role="deferred-init" type="text/javascript">
+    /* usage: window.getDeferred(<deferred name>).resolve() or window.getDeferred(<deferred name>).promise.then(...)*/
+    function Def() {
+        this.promise = new Promise((function (a, b) {
+            this.resolve = a, this.reject = b
+        }).bind(this))
+    }
+
+    const defs = {};
+    window.getDeferred = function (a) {
+        return null == defs[a] && (defs[a] = new Def), defs[a]
+    }
+    window.waitForDeferred = function (b, a, c) {
+        let d = window?.getDeferred?.(b);
+        d
+            ? d.promise.then(a)
+            : c && ["complete", "interactive"].includes(document.readyState)
+                ? setTimeout(a, 1)
+                : c
+                    ? document.addEventListener("DOMContentLoaded", a)
+                    : console.error(`Deferred  does not exist`);
+    };
+</script>
+<style id="forceCssIncludes">
+    /* This file is auto-generated from a `scss` file with the same name */
+
+.videobgwrapper{overflow:hidden;position:absolute;z-index:0;width:100%;height:100%;top:0;left:0;pointer-events:none;border-radius:inherit}.videobgframe{position:absolute;width:101%;height:100%;top:50%;left:50%;transform:translateY(-50%) translateX(-50%);object-fit:fill}#dm video.videobgframe{margin:0}@media (max-width:767px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:80vh}}@media (min-width:1025px){.dmRoot .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .dmPhotoGallery.newPhotoGallery:not(.photo-gallery-done){min-height:45vh}}#dm [data-show-on-page-only]{display:none!important}#dmRoot div.stickyHeaderFix div.site_content{margin-top:0!important}#dmRoot div.stickyHeaderFix div.hamburger-header-container{position:relative}
+    
+
+</style>
+<style id="cssVariables" type="text/css">
+    
+</style>
+
+
+<style id="hideAnimFix">
+  .dmDesktopBody:not(.editGrid) [data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) [data-anim-extended] {
+    visibility: hidden;
+  }
+
+  .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-desktop]:not([data-anim-desktop='none']), .dmDesktopBody:not(.editGrid) .dmNewParagraph[data-anim-extended] {
+    visibility: hidden !important;
+  }
+
+
+  #dmRoot:not(.editGrid) .flex-element [data-anim-extended] {
+    visibility: hidden;
+  }
+
+</style>
+
+
+
+<style id="criticalCss">
+    @charset "UTF-8";.display_None,.dmPopupMask{display:none}.dmInner{min-height:100vh!important;position:relative;min-width:768px!important}.dmPopup,.dmPopupMask{position:fixed;left:0}.dmDisplay_None{display:none!important}.clearfix:after{clear:both;visibility:hidden;line-height:0;height:0}.clearfix:after,.clearfix:before{content:" ";display:table}.clearfix{display:inline-block}#dm .dmWidget .icon{font-size:26px}body.dmRoot #dm .dmOuter .dmInner .dmWidget .icon.hasFontIcon{height:26px;margin-top:-13px;line-height:normal;text-align:center;background-image:none}.dmRoot .hasFontIcon{background-image:none!important}.dmPopupMask{margin:0;width:10px;z-index:1000000999;top:0}#dmRoot .dmPopup,.dmPopup,.dmPopupClose:before,[data-display-type=block]{display:block}.dmPopup{text-align:left;top:10px;width:93%;z-index:1000009999!important;box-sizing:border-box;background:#f5f5f5;overflow-y:auto;height:100%}.dmPopup .dmPopupTitle{text-align:left;font:700 19px Helvetica,Arial;margin:20px 20px 35px;color:#999}#dm .dmInner .dmWidget,#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner div,#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner h3,#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_center .photoGalleryThumbs .caption-container .caption-inner:not(:has(>.caption-link)) div,#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_center .photoGalleryThumbs .caption-container .caption-inner:not(:has(>.caption-link)) h3,.dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner,.dmPhotoGalleryHolder,.multilingualWidget .language a,.text-align-center{text-align:center}#dmPopup{opacity:0}.dmPopupClose,.dmPopupClose:before{position:absolute;visibility:visible}.dmPopupClose{border-radius:25px;width:27px;height:27px;z-index:1;background-color:rgba(255,255,255,.4);top:12px;right:12px}.dmPopupClose:before{font-size:20px;color:#000;top:3px;right:3px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar{width:5px;height:5px}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-track{background:rgba(0,0,0,.1)}body.dmDesktopBody:not(.mac) .data::-webkit-scrollbar-thumb{background:#c8c8c8;box-shadow:inset 0 1px 2px #454545;border-radius:45px}[class*=" dm-icon-"]:before{font-family:dm-font!important}[data-background-parallax-selector] .multilingualWidget{margin-top:10px}.dmRespRow.fullBleedMode>.dmRespColsWrapper{width:100%!important;max-width:100%!important}.dmRespRow.fullBleedMode{padding-left:0!important;padding-right:0!important}#dm .dmRespRow .dmRespColsWrapper{display:flex}#dm .dmInner .dmWidget.align-center,.align-center{margin-left:auto;margin-right:auto}body.fix-mobile-scrolling{overflow:initial}#dmRoot{text-decoration-skip-ink:none}#dm .sticky-widgets-container-global [data-element-type]{position:fixed!important}.dmform-title{padding-right:15px;padding-left:15px}@media (min-width:1025px){#dmRoot.responsiveTablet #dm .dmInner .hide-for-large{display:none!important}}@media (max-width:767px){#dmRoot.responsiveTablet #dm .dmInner .hide-for-small{display:none!important}}#dm .flexslider[sliderscriptparams*="'isFade':true"] .slides li{width:100%!important;float:left!important;margin-right:-100%!important;position:relative!important}#dm .flexslider .slides li:first-child>img{width:100%;height:100%;object-fit:contain;position:absolute;display:block}body{-webkit-overflow-scrolling:touch}nav{display:block}html{font-family:Source Sans Pro;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}h1{margin:.67em 0}hr{box-sizing:content-box;height:0}img{border:0;max-width:100%;-ms-interpolation-mode:bicubic;display:inline-block}svg:not(:root){overflow:hidden}button,input,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button{text-transform:none}button,input[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top;height:auto;min-height:50px}*,:after,:before{box-sizing:border-box}.dmRespRow.dmRespRowNoPadding{padding:0}.dmRespDesignRow,.dmRespRow{padding-top:15px;padding-bottom:15px}.dmRespDesignRow:after,.dmRespDesignRow:before,.dmRespRow:after,.dmRespRow:before{content:" ";display:table}.dmRespDesignRow:after,.dmRespRow:after{clear:both}.dmRespDesignRow,.dmRespRow,.dmRespRow .dmRespColsWrapper{max-width:960px;position:relative;margin:0 auto;width:100%}@media screen and (min-width:1200px){.rows-1200 .dmRespDesignRow,.rows-1200 .dmRespRow:not(.fullBleedMode) .dmRespColsWrapper{max-width:1200px}}.dmRespDesignRow .dmRespDesignCol,.dmRespRow .dmRespCol{position:relative;width:100%;display:inline-block;vertical-align:top;float:left}.dmRespRow .dmRespCol>*{max-width:100%}.dmDesktopBody .dmRespRow .large-3{position:relative;width:25%}.dmDesktopBody .dmRespRow .large-6{position:relative;width:50%}.dmDesktopBody .dmRespRow .large-9{position:relative;width:75%}.dmDesktopBody .dmRespDesignRow .large-12,.dmDesktopBody .dmRespRow .large-12{position:relative;width:100%}[class*=" dm-icon-"]{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-font}.dm-icon-chevron-down:before{content:"\e954"}[class*=" dm-common-icons-"]{speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-family:dm-common-icons!important}.dm-common-icons-close:before{content:"\e901"}#dm div.dmContent [class*=" icon-"],[class*=" icon-"]{font-family:FontAwesome!important;font-weight:400;font-style:normal;text-decoration:inherit;-webkit-font-smoothing:antialiased}[class*=" icon-"]:before{text-decoration:none;display:inline-block;speak:none}a [class*=" icon-"]{display:inline}[class*=" icon-"]{display:inline;width:auto;height:auto;line-height:normal;vertical-align:baseline;background-image:none;background-position:0 0;background-repeat:repeat;margin-top:0}.icon-star:before{content:"\f005"}.icon-angle-down:before{content:"\f107"}@media (min-width:768px){#dm .sticky-widgets-container-global .dmWidget{width:230px;max-width:100%}}@media (max-width:767px){#dm .dmInner .dmWidget{width:100%}}#dm .dmInner .dmWidget:not(.displayNone){display:inline-block}#dm .dmInner .dmWidget:not(.flexButton):not(.displayNone)[data-display-type=block]{display:block}#dm .dmInner .dmWidget{text-decoration:none;margin:10px 0;clear:both;position:relative;line-height:22px;box-shadow:none;background-image:none;padding:0;height:auto;border-style:solid;white-space:nowrap}#dm .dmInner .dmWidget.slide-button{margin-bottom:0}#dm .dmInner .dmWidget:after{content:"";display:inline-block;height:100%;vertical-align:middle;width:0;margin-right:-.25em}.dmWidget.R{float:right}#dm .dmInner .dmWidget input{width:98%;margin:auto;font-size:1.125em;padding:10px!important;background-color:transparent}#dm .dmInner .dmWidget .iconBg{position:absolute;left:0;width:50px;top:50%;margin-top:-13px}#dm .dmWidget .text{display:inline-block;vertical-align:middle;font-size:1.125em;line-height:normal;white-space:normal;padding:10px 7px;max-width:98%}#dm .dmWidget.slide-button:after{display:none}.dmImageSlider{height:350px;position:relative;clear:both}.flexslider{-webkit-transform:translate3d(0,0,0)}html:not(.ios-preview) #dm .hasStickyHeader .dmInner div.dmHeaderContainer{position:fixed!important;z-index:101;width:100%;min-width:768px}#dm .sticky-widgets-container-global [data-element-type].sticky-desktop-position-bottom-right{top:initial!important;bottom:0!important;margin-bottom:40px;right:0!important;left:initial!important;margin-right:40px}.dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner h3{margin:0;line-height:normal;font-size:21px}.dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-text,.dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-title{max-width:100%}#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_left .photoGalleryThumbs .caption-container .caption-inner .caption-button{margin:10px 0}#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_center .photoGalleryThumbs .caption-container .caption-inner:not(:has(>.caption-link)){justify-content:center;align-items:center}#dm .dmPhotoGallery.newPhotoGallery.captionAlignment-center_center .photoGalleryThumbs .caption-container .caption-inner .caption-button{margin:10px auto}#dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder{width:100%;padding:0;display:none}#dm .dmPhotoGallery.newPhotoGallery .layout-container .photogallery-column .photoGalleryThumbs .image-container a img{display:none!important}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner{align-items:center;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;z-index:1;background-color:rgba(255,255,255,.9);color:#333;padding:15px;height:100%;box-sizing:border-box}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-button{margin:10px auto;max-width:100%}#dm .dmPhotoGallery.newPhotoGallery .photoGalleryThumbs .caption-container .caption-inner .caption-button .text{padding:10px 20px!important}#dm .dmPhotoGallery.newPhotoGallery.text-layout-fixed .photoGalleryThumbs .caption-container{position:absolute;left:0;right:0;top:0;bottom:0;margin:auto}#dm .dmPhotoGallery.newPhotoGallery.text-layout-fixed .photoGalleryThumbs .caption-container .caption-inner{background-color:rgba(255,255,255,.5)}#dm .dmPhotoGallery.newPhotoGallery.text-layout-over .photoGalleryThumbs .caption-container{height:100%;width:100%;position:absolute;top:0;left:0;padding:inherit}#dm .dmPhotoGallery.newPhotoGallery.text-layout-over .photoGalleryThumbs .caption-inner{display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;min-height:0!important;padding:10px;transform:scale(1.05);opacity:0;filter:alpha(opacity=0)}@media (max-width:767px){body.dmRoot div[dmtemplateid]:not([dmtemplateid=SlideRightTopFloatM]) .dmHeader .multilingualWidget{position:absolute;top:14px;left:13px;margin-top:0}}#dm_content div.dmRespCol div.multilingualWidget,#hcontainer div.dmRespCol div.multilingualWidget{width:auto!important;display:table!important}.multilingualWidget{clear:both;margin:0;vertical-align:top;display:table!important;font-size:0;font-family:sans-serif}.multilingualWidget>div{position:relative}.multilingualWidget .language{color:#888;display:inline-block}.multilingualWidget .language a{display:inline-block;color:inherit;border:1px solid #dadada;background-color:#fff}.multilingualWidget .language a img{width:24px;height:26px;min-width:24px;min-height:26px}.multilingualWidget .language a span{display:none;line-height:initial}.multilingualWidget .language a span.name{margin-top:5px;margin-left:7px;font-size:12px;font-weight:400;text-transform:capitalize}.multilingualWidget .language a span.short-label{font-size:12px}.multilingualWidget .language a:after{line-height:initial}.multilingualWidget.dropdown .language{width:100%}.multilingualWidget.dropdown .language a{display:block;padding:1px 5px}.multilingualWidget.dropdown .language.other-languages{position:absolute;z-index:800;max-height:0;overflow:hidden}.multilingualWidget.dropdown .language.other-languages a{border-top:0!important}.multilingualWidget.dropdown .current-language{position:relative}.multilingualWidget.dropdown .current-language span.name{padding-right:25px}.multilingualWidget.dropdown .dm-icon{font-size:9px;display:inline-block;position:absolute;top:46%;transform:translateY(-50%);right:8px}.multilingualWidget.dropdown .other-languages,.multilingualWidget.dropdown.flag-only .dm-icon,.multilingualWidget.no-flag a img{display:none}.multilingualWidget.dropdown.flag-only a{border:1px solid transparent;background-color:transparent}.multilingualWidget.dropdown.short-label.no-flag a span.short-label{margin:0;display:inline-block}.multilingualWidget.dropdown.short-label.no-flag a{padding:8px 22px 9px 10px;font-size:12px;min-height:32px;height:auto;box-sizing:border-box}.multilingualWidget.dropdown.short-label.no-flag .current-language a:after{top:12px}.multilingualWidget.short-label span.short-label{text-transform:uppercase}#dm .dmformsubmit input[type=submit]{text-align:inherit}#dm div.dmInner .dmform[data-layout=layout-3] .dmforminput{margin-top:20px}#dm div.dmInner .dmform[data-layout=layout-3] .dmforminput>:not(label):not(div):not(small):not(.frc-banner){background:0;border:0;border-radius:0;-webkit-appearance:none;border-bottom:1px solid;height:30px}.dmform .dmforminput label{display:block;overflow:hidden;text-overflow:ellipsis}.dmform .dmWidgetClear{clear:both;display:block}#dmRoot.dmLargeBody #dm .dmWidget.dmformsubmit{max-width:100%;padding:0}.dmLargeBody #dm .large-6 .dmformsubmit.dmWidget{width:200px}.dmNewParagraph[data-version]{line-height:initial}.dmNewParagraph[data-version] .text-align-center{text-align:center!important}.dmNewParagraph[data-version] [class*=size-]{width:auto!important;height:auto!important}.dmNewParagraph[data-version] h1,.dmNewParagraph[data-version] p{margin-top:0;margin-bottom:0}@media (max-width:767px){.dmRoot .dmNewParagraph[data-version] .m-text-align-center{text-align:center!important}}.slides{margin:0;padding:0;list-style:none}.flexslider,.flexslider .slides>li{height:100%;overflow:hidden;position:relative}.flexslider{padding:0;-webkit-transform:translateZ(0);direction:ltr;margin:0;zoom:1;opacity:1!important}.flexslider .slides{height:100%;zoom:1}.flexslider .slides>li{display:none;text-align:center}.flexslider .slides img{width:100%;display:block;margin:auto}.slides:after{content:" ";display:block;clear:both;visibility:hidden;line-height:0;height:0}html[xmlns] .slides{display:block}.flexslider .color-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.25);display:block}.flexslider .slides>li .slide-inner{font-weight:700;color:#fff;position:absolute;z-index:1;visibility:hidden}.flexslider .slides>li .slide-inner *{line-height:normal}.flexslider .slides>li .slide-inner .slide-title{margin:0}.flexslider .slides>li .slide-inner .slide-text{margin:0;font-size:19px;font-weight:400}#dm .dmInner .flexslider .slides>li .slide-inner .slide-button{margin-top:20px;margin-left:auto;margin-right:auto}.flexslider .slides>li[layout=center] .slide-inner{max-width:70%;max-height:80%}#dm .flexslider .slides .dmWidget .text{max-width:100%;width:100%;padding:10px 20px!important}#dm .dmInner .flexslider.ed-version .slide-button{-js-display:inline-flex;display:inline-flex;justify-content:center;align-items:center}.flexslider.ed-version .slides img{display:none}.flexslider.ed-version[layout=empty] .slide-inner{display:none!important}.graphicWidget{width:200px;height:200px;margin:10px auto;text-align:center}.graphicWidget svg.svg{width:100%;height:100%;color:#000;fill:#000}.imageWidget img.hover-image{display:none}*{border:0 solid #c32b2b;scrollbar-arrow-color:#fff;scrollbar-track-color:#F2F2F2;scrollbar-face-color:silver;scrollbar-highlight-color:silver;scrollbar-3dlight-color:silver;scrollbar-shadow-color:silver;scrollbar-darkshadow-color:silver;scrollbar-width:12px}body{width:100%;overflow:hidden;-webkit-text-size-adjust:100%!important;-ms-text-size-adjust:100%!important}A IMG{border:none}h1,h3,ul{margin-left:0;margin-right:0}.dmInner *{-webkit-font-smoothing:antialiased}.clearfix,a,img,li,ul{vertical-align:top}#iscrollBody,#site_content{position:relative}.dmOuter{word-wrap:break-word}.dmInner{font-size:16px;background:#fff;color:#1a1a1a}.dmDesktopBody .dmInner{min-width:960px}.dmInner a{color:#384663}.dmInner ul:not(.defaultList){padding:0}.dmHeader{background:#fff;color:#1a1a1a;text-align:center;position:relative;width:100%;max-width:100%}DIV.dmBody{padding:0;clear:both}.dmContent{margin:0;padding:0}#site_content ul:not(.defaultList){-webkit-padding-start:0;-moz-padding-start:0;list-style-position:inside}#innerBar{position:relative;height:36px;width:100%;font-size:20px;margin:0;z-index:80}#dm .dmRespRow.dmRespRowNoPadding{padding:0}.dmLargeBody .dmBody .dmRespRowsWrapper,.dmRespRow.dmInnerBarRow{background-color:#fff}.dmRespRowsWrapper{max-width:960px;margin:0 auto}.imageWidget:not(.displayNone) img{width:100%}.dmDivider.defaultDivider{min-height:1px;background-color:rgba(26,26,26,.2);margin:0}#dm .dmRespColsWrapper{display:block}.dmNewParagraph{text-align:left;margin:8px 0;padding:2px 0}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol,.dmLargeBody .fHeader .dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:first-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:last-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}.dmLargeBody .dmRespRowsWrapper>.dmRespRow .dmRespCol:only-child,.dmLargeBody .fHeader .dmRespRow .dmRespCol:only-child{padding-left:0;padding-right:0}#innerBar.lineInnerBar{display:table;width:100%;box-shadow:none;-webkit-box-shadow:none;-moz-box-shadow:none;font-size:20px;margin-top:30px;margin-bottom:30px;background-color:transparent;color:#1a1a1a}#innerBar .titleLine{display:table-cell;vertical-align:middle;width:50%}.dmPageTitleRow:not(#innerBar){display:none}.titleLine hr{min-height:1px;background-color:rgba(26,26,26,.2)}.dmLargeBody .dmFooterResp>.dmRespRow .dmRespCol{padding-left:.75%;padding-right:.75%}.dmLargeBody .dmFooterResp>.dmRespRow .dmRespCol:first-child{padding-left:0;padding-right:1.5%}.dmLargeBody .dmFooterResp>.dmRespRow .dmRespCol:last-child{padding-right:0;padding-left:1.5%}.dmLargeBody .dmFooterResp>.dmRespRow .dmRespCol:only-child{padding-left:0;padding-right:0}.dmStandardDesktop{display:block}.skinnyHeaderLayout .dmHeader .dmRespCol{display:table;float:none;height:50px}#dmFirstContainer .dmRespRowsWrapper:after,#dmFirstContainer .dmRespRowsWrapper:before{content:"";display:table}.dmInner a{outline:0;vertical-align:inherit}.skinnyHeaderLayout .fHeader .dmHeader .dmRespCol{float:left;display:block;height:auto}.dmLinksMenu>ul{display:block;margin:0;font-size:inherit}.dmStandardDesktop{margin:0 auto}#dm .dmInner .dmWidget{color:#1a1a1a;background-color:#fff}#dm h3.dmwidget-title[hide=true]{display:none}#dm .dmwidget-title{margin:10px 0;text-shadow:none;text-align:left;text-transform:capitalize;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;word-wrap:normal}.dmform{clear:both}div.dmInner input[type=email],div.dmInner input[type=tel],div.dmInner input[type=text]{font-size:16px;background-color:rgba(26,26,26,.15);border:2px solid #fff;width:100%;margin:3px 0;height:40px;padding:0 10px}div.dmInner textarea{height:80px;width:100%;margin:3px 0;padding:10px;min-height:50px;font-size:16px}div.dmInner input[type=submit]{margin:5px auto;width:100%;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;height:30px!important;color:#1a1a1a;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;font-size:16px;border:none;outline:0}.dmforminput{margin-top:10px;text-align:left;padding-left:.9375em;padding-right:.9375em}#dm .dmform .dmformsubmit{margin:20px 15px}div.dmInner .dmformsubmit input[type=submit]{height:auto!important}#dm .dmDivider{display:block;margin:10px 0}.dmPhotoGalleryHolder{font-size:medium!important;margin:0;list-style:none}#dm .dmPhotoGallery .dmPhotoGalleryHolder{width:100%;padding:0}body{background-color:#eee}.dmDivider{min-height:2px;border:currentColor;color:grey;background:0 0}#dm .dmDividerWrapper{display:block}.dmLargeBody #dm .dmRespRow .dmRespCol.large-6 .dmform-wrapper .dmformsubmit{min-width:200px;width:auto}.flexslider .slides>li .slide-inner .slide-text{white-space:pre-line}.main-navigation.unifiednav{-js-display:flex;display:flex;justify-content:flex-start;align-items:stretch;overflow:visible}.main-navigation.unifiednav ul{list-style:none;padding:0;margin:0;font-size:1rem}.main-navigation.unifiednav .unifiednav__container{-js-display:flex;display:flex;justify-content:flex-start;list-style:none}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap{-js-display:flex;display:flex;justify-content:flex-start;position:relative;font-weight:400}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap::before{content:'';align-self:center;font-weight:700}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item{-js-display:flex;display:flex;justify-content:flex-start;align-items:center;flex-direction:row;color:inherit;text-decoration:none;position:relative;padding:12px 15px;margin:0;font-weight:inherit;letter-spacing:.03em}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{padding:0 15px}.main-navigation.unifiednav .unifiednav__container>.unifiednav__item-wrap>.unifiednav__item .nav-item-text{white-space:nowrap}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{content:'';width:100%;height:0;border:0 solid transparent;border-top-color:currentColor;display:block;opacity:0}#dm .dmInner div.u_hcontainer,#dm .p_hfcontainer div.u_1055626925,#dm .p_hfcontainer div.u_1070124427,#dm .p_hfcontainer div.u_1101943899{height:auto!important;text-align:center!important}#dm .button_2 .dmWidget:not([data-buttonstyle]) .iconBg,#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=ROUND_SIDES] .iconBg,#dm .dmWidget:not([data-buttonstyle]) .iconBg,.dmFooterContainer .dmRespRow.dmDividerRow,.dmLargeBody #innerBar.lineInnerBar,.main-navigation.unifiednav .unifiednav__container .unifiednav__item:not(.unifiednav__item_has-sub-nav) .icon{display:none}.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::after,.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::before{opacity:1}.main-navigation.unifiednav.effect-bottom2{padding:calc(12px - .2em - 2px) 15px}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{transform:scaleX(0);border-top-width:2px}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after{margin-top:.2em}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{margin-bottom:.2em;border-top-color:transparent}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item.dmNavItemSelected .nav-item-text::before{transform:scaleX(1)}.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::after,.main-navigation.unifiednav.effect-bottom2 .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item .nav-item-text::before{transform-origin:left}.main-navigation.unifiednav:not(.unifiednav_vertical)>.unifiednav__container{justify-content:inherit}#dm .p_hfcontainer nav.main-navigation.unifiednav{min-width:9em!important;text-align:initial!important}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container{flex-wrap:wrap;justify-content:inherit}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL])>.unifiednav__container .nav-item-text::before{text-align:left}#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{content:''}#dm .dmBody .dmRespRowsWrapper{max-width:none;background-color:transparent}div.dmInner{font-weight:300;font-family:Roboto}.dmLargeBody .dmRespRow{width:100%;max-width:none;margin-left:0;margin-right:0;padding-left:40px;padding-right:40px}.dmRespRow:not(.desktopHeaderBox) .dmRespColsWrapper{max-width:960px}h1{font-size:56px;font-weight:400;font-family:Oswald}#dm .dmwidget-title,.dmform .dmforminput label,h3{font-family:Oswald,"Oswald Fallback";font-weight:400}#dm .dmwidget-title,h3{font-size:30px}.dmLargeBody .dmFullRowRespTmpl .dmRespRow .large-6:first-child{padding-right:40px}.dmLargeBody .dmFullRowRespTmpl .dmRespRow .large-6:last-child{padding-left:40px}#dm div.dmInner input[type=text],div.dmInner input[type=email],div.dmInner input[type=tel],div.dmInner textarea{background-color:#fff;border:0}.dmform .dmforminput label{font-size:16px}#dm div.dmContent h3,#dm div.dmInner h1,#dm div.dmInner h3{font-family:"Libre Baskerville","Libre Baskerville Fallback"}#dm .skinnyHeaderLayout[data-soch=true] .dmHeader{padding-top:36px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child:empty{min-height:100px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed).empty-column,.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespCol:not(.content-removed):empty{min-height:1px}.dmRespRow:not(.dmPlaceHolderRespRow) .dmRespColsWrapper .dmRespCol:not(.content-removed):only-child.empty-column{min-height:100px}#dm .dmform .dmforminput label,#dm div.dmInner,#dm div.dmInner .dmRespCol{color:rgba(26,26,26,1);font-weight:400}#dm div.dmRespCol>*{line-height:150%}#dm div.dmContent h3{font-size:26px}#dm div.dmRespCol>[data-version]{line-height:1.5}#dm .dmRespCol div.dmNewParagraph,#dm .dmform .dmforminput label,#dm div.dmInner,#dm div.dmInner .dmRespCol,.dmPhotoGallery .caption-text.caption-text{font-family:Spartan;font-style:normal;font-size:18px}#dm div.dmContent h1{color:#2f2f2f;direction:ltr;font-family:Spartan;font-weight:400;font-style:normal;text-decoration:none;font-size:36px}#dm div.dmContent .dmNewParagraph[data-version] h1{text-decoration:inherit}#dm div.dmContent .dmNewParagraph[data-version] h1 *{text-decoration:none}.imageWidget:not(.displayNone) img{border-radius:0;-webkit-border-radius:0;-moz-border-radius:0}@media all{:root{--btn-text-direction:ltr;--btn-border-r-color:var(--btn-border-color);--btn-border-l-color:var(--btn-border-color);--btn-border-b-width:var(--btn-border-width);--btn-border-width:2px;--btn-border-radius:6px;--btn-border-t-width:var(--btn-border-width);--btn-border-tl-radius:var(--btn-border-radius);--btn-border-br-radius:var(--btn-border-radius);--btn-border-bl-radius:var(--btn-border-radius);--btn-bg-color:rgba(0, 0, 0, 0);--btn-border-color:rgba(0, 0, 0, 0);--btn-border-tr-radius:var(--btn-border-radius);--btn-border-r-width:var(--btn-border-width);--btn-bg-image:none;--btn-border-b-color:var(--btn-border-color);--btn-border-l-width:var(--btn-border-width);--btn-border-t-color:var(--btn-border-color);--btn-text-align:center;--btn-text-color:rgb(26, 26, 26);--btn-text-decoration:none;--btn-text-font-weight:700;--btn-text-font-family:"Josefin Sans","Josefin Sans Fallback";--btn-icon-color:rgb(26, 26, 26);--btn-icon-fill:rgb(26, 26, 26);--btn-icon-wrpr-display:none;--btn-hover-border-b-color:var(--btn-hover-border-color);--btn-hover-bg:var(--btn-bg-color);--btn-hover-border-t-color:var(--btn-hover-border-color);--btn-hover-border-r-color:var(--btn-hover-border-color);--btn-hover-border-l-color:var(--btn-hover-border-color);--btn-hover-border-color:var(--btn-border-color);--btn-hover-text-color:var(--btn-text-color);--btn-hover-text-font-weight:var(--btn-text-font-weight);--btn-hover-text-decoration:var(--btn-text-decoration);--btn-hover-text-font-style:var(--btn-text-font-style)}}#dm .button_2 .dmWidget:not([data-buttonstyle]),#dm .dmWidget:not([data-buttonstyle]){background-clip:border-box;border-radius:6px}#dm .button_2 .dmWidget:not([data-buttonstyle]) .text,#dm .dmWidget:not([data-buttonstyle]) .text,#dm .dmWidget:not([data-buttonstyle]) input{padding:10px 7px}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=ROUND_SIDES]{border-radius:50px}#dm .dmOuter .dmInner .dmWidget[data-buttonstyle=ROUND_SIDES] .text{padding:10px 0}#dm div.dmInner #site_content .dmWidget{background-color:var(--btn-bg-color);background-image:var(--btn-bg-image);border-color:var(--btn-border-color);border-bottom-color:var(--btn-border-b-color);border-left-color:var(--btn-border-l-color);border-right-color:var(--btn-border-r-color);border-top-color:var(--btn-border-t-color);border-radius:var(--btn-border-radius);border-bottom-left-radius:var(--btn-border-bl-radius);border-bottom-right-radius:var(--btn-border-br-radius);border-top-left-radius:var(--btn-border-tl-radius);border-top-right-radius:var(--btn-border-tr-radius);border-width:var(--btn-border-width);border-bottom-width:var(--btn-border-b-width);border-left-width:var(--btn-border-l-width);border-right-width:var(--btn-border-r-width);border-top-width:var(--btn-border-t-width);direction:var(--btn-text-direction);text-align:var(--btn-text-align)}#dm div.dmInner #site_content .dmWidget span.text,#dm div.dmInner #site_content .dmformsubmit input{color:var(--btn-text-color);font-family:var(--btn-text-font-family);font-weight:var(--btn-text-font-weight);text-decoration:var(--btn-text-decoration)}#dm div.dmInner #site_content .dmWidget span.icon{color:var(--btn-icon-color);fill:var(--btn-icon-fill)}#dm div.dmInner #site_content .dmWidget:not([data-buttonstyle]) .iconBg{display:var(--btn-icon-wrpr-display)}#dm .p_hfcontainer nav.u_1704053510.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{color:rgba(115,111,111,1)!important;font-size:20px!important}#dm .dmBody div.u_1322262362 .dmforminput input,#dm .dmBody div.u_1322262362 .dmforminput label:not(.for-checkable):not(.custom-contact-checkable),#dm .dmBody div.u_1322262362 .dmforminput textarea,#dm .dmBody div.u_1322262362 input[type=submit]{color:rgba(42,64,56,1)!important}#dm .dmInner div.dmHeader,#dm .dmInner div.dmHeader.u_hcontainer,#dm .dmInner div.u_hcontainer{box-shadow:none!important;-moz-box-shadow:none!important;-webkit-box-shadow:none!important}#dm .p_hfcontainer .u_1704053510.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::after,#dm .p_hfcontainer .u_1704053510.main-navigation.unifiednav:not([data-nav-structure=VERTICAL]) .unifiednav__container:not([data-depth])>.unifiednav__item-wrap:not(:last-child)::before{font-size:20px!important}a.u_1371233050 .iconBg{display:none!important}#dm .p_hfcontainer .u_1704053510.main-navigation.unifiednav .unifiednav__container:not([data-depth])>.unifiednav__item-wrap>.unifiednav__item{margin:0!important;padding:1px 23px!important}#dm .dmInner div.u_hcontainer{float:none!important;top:auto!important;max-width:100%!important;left:0!important;width:100%!important;position:relative!important;min-width:0!important;padding:40px 0!important;margin:0 auto!important}#dm .dmInner div.fHeader .dmHeader[freeheader=true]{padding:12px 0!important}.fHeader #hcontainer.dmHeader[freeheader=true]{padding-top:initial!important;padding-bottom:initial!important}#dm .p_hfcontainer div.u_1055626925 .language a{border-style:solid!important;border-width:0!important}#dm .p_hfcontainer div.u_1055626925{float:none!important;top:0!important;left:0!important;position:relative!important;min-width:25px!important;display:block!important;width:calc(100% - 1239px)!important;max-width:51px!important;padding:0!important;margin:0 649.64px 0 1239px!important}#dm .dmInner div.fHeader.dmHeaderContainer #hcontainer.dmHeader[freeheader=true]{margin:0!important;padding:12px 0!important}#dm .p_hfcontainer div.u_1101943899{float:none!important;top:0!important;left:0!important;width:auto!important;position:relative!important;max-width:100%!important;min-width:0!important;padding:0!important;margin:0!important}#dm .p_hfcontainer div.u_1685661551{float:none!important;top:0!important;left:0!important;width:calc(100% - 94px)!important;position:relative!important;height:auto!important;max-width:515px!important;min-width:25px!important;padding:2px 0!important;margin:8px 0 8px 94px!important}#dm .p_hfcontainer div.u_1070124427,#dm .p_hfcontainer nav.u_1704053510{float:none!important;left:0!important;position:relative!important;max-width:100%!important}a.u_1371233050{border-radius:50px!important;-moz-border-radius:50px!important;-webkit-border-radius:50px!important;padding:0!important;margin:0 40px 40px 0!important}#dm .p_hfcontainer div.u_1070124427{width:auto!important;top:0!important;min-width:0!important;padding:0 15px!important;margin:0!important}.stickyHeaderSpacer{height:208.3px!important}#dm .p_hfcontainer div.u_1685478394{border-radius:0!important;padding:0 0 0 300px!important;margin:0!important}#dm .p_hfcontainer div.u_1995037972{margin:0!important;padding:0!important}#dm .p_hfcontainer nav.u_1704053510{top:0!important;width:1348px!important;height:auto!important;justify-content:flex-start!important;align-items:stretch!important;min-width:0!important;text-align:left!important;min-height:auto!important;padding:0 0 6.8px!important;margin:11px auto 0 0!important}#dm .dmBody div.u_1041878080,#dm .dmBody div.u_1426421135{padding:0!important;float:none!important;left:0!important;top:0!important;position:relative!important;min-width:25px!important}@media (min-width:768px) and (max-width:1024px){.responsiveTablet .stickyHeaderSpacer{height:293.63px!important}}@media (min-width:1025px){.responsiveTablet .stickyHeaderSpacer{height:252.8px!important}}#dm .dmBody div.u_1041878080 .color-overlay{background-color:rgba(0,0,0,0)!important}#dm .dmBody div.u_1466696171 .caption-inner{background-color:rgba(0,0,0,.04)!important}#dm .dmBody div.u_1466696171 .caption-button{box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-moz-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;-webkit-box-shadow:rgba(0,0,0,.25) 0 3px 11px 0!important;width:151px!important}#dm .dmBody div.u_1557329758 img{border-radius:50%!important;-moz-border-radius:50%!important;-webkit-border-radius:50%!important}#dm .dmBody div.u_1025602178 .color-overlay{background-color:rgba(0,0,0,0)!important}#dm .dmBody .u_1257576306,#dm .dmBody .u_1341779529,#dm .dmBody .u_1580893267,#dm .dmBody .u_1612423844,#dm .dmBody .u_1730719811,#dm .dmBody .u_1761433641{background-position:50% 50%!important}#dm .dmBody .u_1466696171 .caption-inner{-webkit-border-top-right-radius:0!important;-webkit-border-bottom-right-radius:0!important;-webkit-border-bottom-left-radius:0!important;-webkit-border-top-left-radius:0!important;border-radius:0!important;-moz-border-radius:0!important;-webkit-border-radius:0!important}#dm .dmBody div.u_1946014138{border-style:solid!important;border-width:10px!important;border-color:transparent!important}#dm .dmBody div.u_1543622646{border-style:solid!important;border-width:0!important}#dm .dmBody div.u_1384632912{background-repeat:no-repeat!important;background-image:none!important;background-color:rgba(249,248,244,1)!important}#dm .dmBody .u_1322262362 .dmformsubmit{float:none!important;display:block!important;margin-left:auto!important;margin-right:auto!important}#dm .dmBody div.u_1322262362 input[type=submit]{font-weight:700!important}#dm .dmBody div.u_1322262362 input:not([type=submit]),#dm .dmBody div.u_1322262362 textarea{border-bottom-color:rgba(203,198,190,1)!important}#dm .dmBody .u_1602818319 .caption-button{text-align:CENTER!important}#dm .dmBody .u_1487919837,#dm .dmBody .u_1551258801,#dm .dmBody .u_1704175780,#dm .dmBody .u_1967230642,#dm .dmBody a.u_1818469957 .iconBg{display:none!important}#dm .dmBody div.u_1466696171 .caption-button span.text{font-size:16px!important}#dm .dmBody div.u_1041878080{width:calc(100% - 297px)!important;height:630px!important;max-width:606px!important;text-align:start!important;margin:-15px auto 0!important}#dm .dmBody div.u_1426421135{width:calc(100% - 514px)!important;height:130px!important;max-width:140px!important;text-align:center!important;margin:40px 520px 10px 514px!important}#dm .dmBody div.u_1887272097{float:none!important;top:0!important;left:0!important;width:calc(100% - 0px)!important;position:relative!important;height:auto!important;max-width:381px!important;min-width:25px!important;padding:2px 0!important;margin:20px 0 8px!important}#dm .dmBody div.u_1322262362 .dmformsubmit{background-color:rgba(196,221,42,1)!important;width:350px!important;height:60px!important}#dm .dmBody div.u_1147502297,#dm .dmBody div.u_1322262362{float:none!important;left:0!important;height:auto!important}#dm .dmBody div.u_1322262362{top:0!important;width:calc(100% - 35px)!important;position:relative!important;max-width:512px!important;min-width:25px!important;text-align:start!important;display:block!important;padding:0!important;margin:0 auto!important}#dm .dmBody div.u_1231106103{padding:0 18px 0 0!important;margin:0!important}#dm .dmBody div.u_1384632912{background-attachment:initial!important;background-size:cover!important;background-position:50% 100%!important;width:auto!important;padding:100px 40px 40px!important;margin:0!important}#dm .dmBody div.u_1147502297{top:0!important;width:calc(100% - 0px)!important;position:relative!important;max-width:566px!important;min-width:25px!important;padding:2px 0!important;margin:8px 0!important}#dm .dmBody div.u_1602818319 .caption-button{border-radius:53px!important;-webkit-box-shadow:none!important;box-shadow:none!important;-moz-box-shadow:none!important;height:50px!important;width:200px!important}.font-size-44,.size-44{font-size:44px!important}.font-size-25,.size-25{font-size:25px!important}.font-size-48{font-size:48px!important}.font-size-20,.size-20{font-size:20px!important}.font-size-36{font-size:36px!important}.dmDesktopBody:not(.editGrid) [data-anim-extended]{visibility:hidden} #dm .dmPhotoGallery.newPhotoGallery .dmPhotoGalleryHolder:not(.photo-gallery-done) {display: none;} @media (max-width:767px){ [data-hidden-on-mobile] {display:none!important}}
+    .dmDesktopBody [data-anim-desktop]:not([data-anim-desktop='none']) {
+      visibility: hidden;
+    }
+
+    
+</style>
+
+
+
+<style id="fontFallbacks">
+    @font-face {
+  font-family: "Josefin Slab Fallback";
+  src: local('Arial');
+  ascent-override: 78.0789%;
+  descent-override: 26.0263%;
+  size-adjust: 96.0566%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Roboto Fallback";
+  src: local('Arial');
+  ascent-override: 92.6709%;
+  descent-override: 24.3871%;
+  size-adjust: 100.1106%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Libre Baskerville Fallback";
+  src: local('Arial');
+  ascent-override: 83.6258%;
+  descent-override: 23.2773%;
+  size-adjust: 115.9929%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Josefin Sans Fallback";
+  src: local('Arial');
+  ascent-override: 72.9195%;
+  descent-override: 24.3065%;
+  size-adjust: 102.8531%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Quicksand Fallback";
+  src: local('Arial');
+  ascent-override: 94.9261%;
+  descent-override: 23.7315%;
+  size-adjust: 105.3451%;
+  line-gap-override: 0%;
+ }@font-face {
+  font-family: "Oswald Fallback";
+  src: local('Arial');
+  ascent-override: 145.0682%;
+  descent-override: 35.1423%;
+  size-adjust: 82.2372%;
+  line-gap-override: 0%;
+ }
+</style>
+
+
+<!-- End render the required css and JS in the head section -->
+
+
+
+
+
+
+<link rel="alternate" hreflang="es-co" href="https://www.fedegastronomy.com/es-co" />
+
+<link rel="alternate" hreflang="en" href="https://www.fedegastronomy.com/" />
+
+<link rel="alternate" hreflang="x-default" href="https://www.fedegastronomy.com/" />
+
+
+
+
+  <link type="application/rss+xml" rel="alternate" href="https://www.fedegastronomy.com/feed/rss2"/>
+  <link type="application/atom+xml" rel="alternate" href="https://www.fedegastronomy.com/feed/atom"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.fedegastronomy.com/"/>
+  <script type="application/ld+json">
+
+
+    {
+        "@context" : "https://schema.org",
+        "@type" : "WebSite",
+        "name" : "FedeGastronomy",
+        "url" : "https://www.fedegastronomy.com/"
+    }
+
+
+  </script>
+  <title>
+    
+    Fede Gastronomy | Exclusive Gastronomic Experiences
+  
+  </title>
+  <meta name="description" content="Premium catering services, culinary experiences, and gourmet consulting. Elevate your events and experience haute cuisine."/>
+
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Fede Gastronomy | Exclusive Gastronomic Experiences"/>
+  <meta name="twitter:description" content="Premium catering services, culinary experiences, and gourmet consulting. Elevate your events and experience haute cuisine."/>
+  <meta name="twitter:image" content="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fedegastronomylogo_white-copy-7440c99e-1920w.jpg"/>
+  <meta property="og:description" content="Premium catering services, culinary experiences, and gourmet consulting. Elevate your events and experience haute cuisine."/>
+  <meta property="og:title" content="Fede Gastronomy | Exclusive Gastronomic Experiences"/>
+  <meta property="og:image" content="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fedegastronomylogo_white-copy-7440c99e-1920w.jpg"/>
+
+
+
+
+<!-- SYS- VVNfRElSRUNUX1BST0RVQ1RJT04= -->
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body id="dmRoot" data-page-alias="home"  class="dmRoot dmDesktopBody fix-mobile-scrolling addCanvasBorder dmResellerSite dmLargeBody responsiveTablet "
+      style="padding:0;margin:0;"
+      
+    >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Preconnect to Snipcart -->
+<link rel="preconnect" href="https://ms-cdn.multiscreensite.com">
+
+<!-- Snipcart installation script https://docs.snipcart.com/v3/setup/installation#addproductbehavior -->
+<script>
+window.SnipcartSettings = {
+    publicApiKey: "test_pub_641c343fda39406b862b1de717db07be",
+    loadStrategy: "on-user-interaction",
+    baseUrl: "https://ms-cdn.multiscreensite.com/",
+    
+    <!-- membership subscriptions -->
+    addProductBehavior: "navigate-checkout",
+    invoiceUrl: "/home"
+    
+};
+
+window._nativeEcommOnHashChangeHandler = () => { return; };
+window.addEventListener('hashchange', (e) => window._nativeEcommOnHashChangeHandler(e));
+
+"use strict";(()=>{var m;(m=window.SnipcartSettings)!=null||(window.SnipcartSettings={});var S,u;(u=(S=window.SnipcartSettings).timeoutDuration)!=null||(S.timeoutDuration=2750);var p,w;(w=(p=window.SnipcartSettings).baseUrl)!=null||(p.baseUrl="/");var g,E;(E=(g=window.SnipcartSettings).loadCSS)!=null||(g.loadCSS=!0);var f=["focus","mouseover","touchmove","scroll","keydown"];function y(){let e=()=>{};return{ready:new Promise(n=>{e=n}),markAsReady:e}}window.LoadSnipcart=o;window._ecomSDK=y();document.readyState==="loading"?document.addEventListener("DOMContentLoaded",l):l();function l(){var e;(e=window.SnipcartSettings)!=null&&e.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var s=!1;function o(){var r,a,c,d;if(s)return;s=!0;let e=document.getElementsByTagName("head")[0],t=document.querySelector("#snipcart"),n=document.querySelector(`script[src^="${(r=window.SnipcartSettings)==null?void 0:r.baseUrl}"][src$="native-ecomm.js"]`),i=document.querySelector(`link[href^="${(a=window.SnipcartSettings)==null?void 0:a.baseUrl}"][href$="native-ecomm.css"]`);t||(t=document.createElement("div"),t.id="snipcart",t.setAttribute("hidden","true"),document.body.appendChild(t)),n||(n=document.createElement("script"),n.src=`${(c=window.SnipcartSettings)==null?void 0:c.baseUrl}snipcart-frontend/latest/res/native-ecomm.js`,n.async=!0,e.appendChild(n)),!i&&((d=window.SnipcartSettings)!=null&&d.loadCSS)&&(i=document.createElement("link"),i.rel="stylesheet",i.type="text/css",i.href=`${window.SnipcartSettings.baseUrl}snipcart-frontend/latest/res/native-ecomm.css`,e.prepend(i)),f.forEach(v=>document.removeEventListener(v,o))}})();
+</script>
+
+
+
+<!-- ========= Site Content ========= -->
+<div id="dm" class='dmwr'>
+    
+    <div class="dm_wrapper standard-var5 widgetStyle-3 standard">
+         <div dmwrapped="true" id="1621572126" class="dm-home-page" themewaschanged="true"> <div dmtemplateid="skinnyHeaderLayout" class="skinnyHeaderLayout dm-bfs dm-layout-home rows-1200 inMiniHeaderMode hasStickyHeader dmPageBody d-page-1456746208 inputs-css-clean dmFreeHeader" id="dm-outer-wrapper" data-page-class="1456746208" data-soch="true" data-background-parallax-selector=".dmHomeSection1, .dmSectionParallex"> <div id="dmStyle_outerContainer" class="dmOuter"> <div id="dmStyle_innerContainer" class="dmInner"> <div class="dmLayoutWrapper standard-var dmStandardDesktop"> <div class="dmHeaderContainer fHeader d-header-wrapper"> <div id="hcontainer" class="u_hcontainer dmHeader p_hfcontainer" freeheader="true" layout="7621f7e0002549258c16efb7610abc8f===header" secondary-image="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fedegastronomylogo_black--1920w.jpg" has-secondary-image="true" data-scrollable-target="body" data-scrollable-target-threshold="1" data-scroll-responder-id="2" logo-size-target="66%"> <div dm:templateorder="76" class="dmHeaderResp noSwitch" id="1994185604"> <div class="u_1101943899 dmRespRow fullBleedChanged fullBleedMode" style="text-align: center;" id="1101943899"> <div class="dmRespColsWrapper" id="1275917599"> <div class="u_1995037972 dmRespCol small-12 large-3 medium-3" id="1995037972"> <div id="1055626925" class="u_1055626925 multilingualWidget dropdown short-label no-flag" dmle_extension="multilingual" data-element-type="multilingual" data-display="dropdownShortLabelNoFlag" icon="false" wr="false" surround="false"> <div class="desktopMultilingual"> <div class="language current-language"> <a href="/" data-disable-ajax-navigation="true"><img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="English" data-code="" onerror="handleImageLoadError(this)"/> <span class="name">English</span> 
+ <span class="short-label">en</span> 
+ <div class="dm-icon dm-icon-chevron-down"></div> 
+</a> 
+</div> 
+ <div class="language other-languages"> <a href="/es-co" data-code="" data-disable-ajax-navigation="true"><img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/co.png" alt="Español" onerror="handleImageLoadError(this)"/> <span class="name">Espa&ntilde;ol</span> 
+ <span class="short-label">es</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1002910846 dmRespCol small-12 large-9 medium-9" id="1002910846"> <div class="u_1685661551 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1685661551" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="m-size-35 text-align-center size-44"><span style="color:rgb(0, 0, 0);font-weight:300;display:unset;font-family:Quicksand, 'Quicksand Fallback';" class="m-font-size-35 font-size-44">FEDE GASTRONOMY</span></p><p class="m-size-20 text-align-center size-25"><span style="color:rgb(141, 141, 141);font-weight:300;display:unset;font-family:Quicksand, 'Quicksand Fallback';" class="m-font-size-20 font-size-25">The world on your table</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1070124427 dmRespRow dmDefaultListContentRow fullBleedChanged fullBleedMode" style="text-align:center" id="1070124427"> <div class="dmRespColsWrapper" id="1208733021"> <div class="u_1685478394 dmRespCol small-12 medium-12 large-12" id="1685478394"> <nav class="u_1704053510 effect-bottom2 main-navigation unifiednav dmLinksMenu" role="navigation" layout-main="horizontal_nav_layout_1" layout-sub="submenu_horizontal_1" data-show-vertical-sub-items="HOVER" id="1704053510" dmle_extension="onelinksmenu" data-element-type="onelinksmenu" data-logo-src="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fedegastronomylogo_white-copy-7440c99e.jpg" alt="" data-nav-structure="HORIZONTAL" wr="true" icon="true" surround="true" adwords="" navigation-id="unifiedNav"> <ul role="menubar" class="unifiednav__container  " data-auto="navigation-pages"> <li role="menuitem" class=" unifiednav__item-wrap dmCoreImg" data-auto="more-pages" data-depth="0"> <a href="/" class="unifiednav__item  dmNavItemSelected  dmUDNavigationItem_00  " target="" data-target-page-alias="" aria-current="page" data-auto="selected-page"> <span class="nav-item-text " data-link-text="
+         Home
+        " data-auto="page-text-style">Home<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/#Services" class="unifiednav__item  dmUDNavigationItem_010101395832  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Services
+        " data-auto="page-text-style">Services<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/#Philosophy" class="unifiednav__item  dmUDNavigationItem_010101112070  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Philosophy
+        " data-auto="page-text-style">Philosophy<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/#FedericoAristizabal" class="unifiednav__item  dmUDNavigationItem_01010169268  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Federico Aristizabal Velez
+        " data-auto="page-text-style">Federico Aristizabal Velez<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/#Gallery" class="unifiednav__item  dmUDNavigationItem_010101935331  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Gallery
+        " data-auto="page-text-style">Gallery<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/#ContactUs" class="unifiednav__item  dmUDNavigationItem_010101179328  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Contact Us
+        " data-auto="page-text-style">Contact Us<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+ <li role="menuitem" class=" unifiednav__item-wrap " data-auto="more-pages" data-depth="0"> <a href="/blog" class="unifiednav__item  dmUDNavigationItem_010101795721  " target="" data-target-page-alias=""> <span class="nav-item-text " data-link-text="
+         Blog
+        " data-auto="page-text-style">Blog<span class="icon icon-angle-down"></span> 
+</span> 
+</a> 
+</li> 
+</ul> 
+</nav> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="stickyHeaderSpacer" id="stickyHeaderSpacer" data-new="true"></div> 
+ <div id="desktopBodyBox"> <div id="iscrollBody"> <div id="site_content"> <div class="dmRespRow dmRespRowStable dmRespRowNoPadding dmPageTitleRow dmInnerBarRow"> <div class="dmRespColsWrapper"> <div class="large-12 dmRespCol"> <div id="innerBar" class="innerBar lineInnerBar dmDisplay_None"> <div class="titleLine display_None"><hr/></div> 
+<!-- Page title is hidden in css for new responsive sites. It is left here only so we don't break old sites. Don't copy it to new layouts --> <div id="pageTitleText"></div> 
+ <div class="titleLine display_None"><hr/></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div dmwrapped="true" id="dmFirstContainer" class="dmBody u_dmStyle_template_home dm-home-page" themewaschanged="true"> <div id="allWrapper" class="allWrapper"><!-- navigation placeholders --> <div id="dm_content" class="dmContent" role="main"> <div dm:templateorder="117" class="dmFullRowRespTmpl mainBorder dmRespRowsWrapper" id="1456746208"> <div class="u_1980206104 dmRespRow" id="1980206104" data-anim-extended="eyJtb2JpbGUiOnsidHJpZ2dlciI6ImVudHJhbmNlIiwiYW5pbWF0aW9uIjoiZmFkZUluIn19" data-anim-mobile="fadeIn"> <div class="dmRespColsWrapper" id="1222813622"> <div class="dmRespCol large-12 medium-12 small-12 u_1543622646" id="1543622646"> <div id="1257627455" class="default multilingualWidget dropdown flag-only" dmle_extension="multilingual" data-element-type="multilingual" needs_premium_validation="true" adwords="" data-display="dropdown" icon="true" wr="true" surround="true"> <div class="desktopMultilingual"> <div class="language current-language"> <a href="/" data-disable-ajax-navigation="true"><img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/us.png" alt="English" data-code="" onerror="handleImageLoadError(this)"/> <span class="name">English</span> 
+ <span class="short-label">en</span> 
+ <div class="dm-icon dm-icon-chevron-down"></div> 
+</a> 
+</div> 
+ <div class="language other-languages"> <a href="/es-co" data-code="" data-disable-ajax-navigation="true"><img src="https://dd-cdn.multiscreensite.com/flags/flags_iso/32/co.png" alt="Español" onerror="handleImageLoadError(this)"/> <span class="name">Espa&ntilde;ol</span> 
+ <span class="short-label">es</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1041878080 flex-container dmImageSlider dmNoMargin dmNoMark hasFullWidthMobile" data-widget-type="imageSlider" dmle_volatile_widget="true" data-element-type="dSliderId" id="1041878080"> <div class="flexslider ed-version nav-layout-2" sliderscriptparams="{'stretch':false,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':true,'controlNav':false,'slideshowSpeed':7000,'animationDuration':600,'pausePlay':true}" id="1310017307" layout="empty"> <ul class="slides" id="1539990458"> <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1341779529" class="u_1341779529"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta56-1920w.jpg" id="1616518398" alt="Plato de pasta gourmet preparado por Fede Gastronomy" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1007860898"></div> 
+ <div class="slide-inner" id="1500147484"> <div class="text-wrapper" id="1715140223"> <h3 class="slide-title" id="1223894424">Slide title</h3> 
+ <div class="slide-text richText" id="1188082475">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1093479273"> <span class="iconBg" id="1220489914"> <span class="icon hasFontIcon icon-star" id="1982123896"></span> 
+</span> 
+ <span class="text" id="1817927963">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1580893267" class="u_1580893267"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta33-1920w.jpg" id="1843396157" alt="Gougères rellenas de mousse de salmón ahumado y tobiko rojo" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1954285806"></div> 
+ <div class="slide-inner" id="1519562190"> <div class="text-wrapper" id="1872765194"> <h3 class="slide-title" id="1722839246">Slide title</h3> 
+ <div class="slide-text richText" id="1570558908">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1003499033"> <span class="iconBg" id="1703768764"> <span class="icon hasFontIcon icon-star" id="1525061493"></span> 
+</span> 
+ <span class="text" id="1712080776">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1761433641" class="u_1761433641"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta15-1920w.jpg" id="1229745291" alt="Bandeja de sushi gourmet preparada por Fede Gastronomy" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1556172347"></div> 
+ <div class="slide-inner" id="1893434566"> <div class="text-wrapper" id="1822163200"> <h3 class="slide-title" id="1217845631">Slide title</h3> 
+ <div class="slide-text richText" id="1019953783">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1828334698"> <span class="iconBg" id="1859255562"> <span class="icon hasFontIcon icon-star" id="1130463671"></span> 
+</span> 
+ <span class="text" id="1175368486">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1068545449"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta76-1920w.jpg" id="1671439809" alt="Fry asparagus with yuzu foam" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1452742763"></div> 
+ <div class="slide-inner" id="1462412819"> <div class="text-wrapper" id="1656735733"> <h3 class="slide-title" id="1730525356">Slide title</h3> 
+ <div class="slide-text richText" id="1285486451">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1580310278"> <span class="iconBg" id="1093426059"> <span class="icon hasFontIcon icon-star" id="1544865874"></span> 
+</span> 
+ <span class="text" id="1586785498">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1741540662"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_caviar-1920w.jpg" id="1970939886" alt="Blini with caviar ossetra" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1640158334"></div> 
+ <div class="slide-inner" id="1941593774"> <div class="text-wrapper" id="1777427322"> <h3 class="slide-title" id="1590289041">Slide title</h3> 
+ <div class="slide-text richText" id="1264914939">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1166705974"> <span class="iconBg" id="1805636908"> <span class="icon hasFontIcon icon-star" id="1149201738"></span> 
+</span> 
+ <span class="text" id="1714952879">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1257576306" class="u_1257576306"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta9-1920w.jpg" id="1207548976" alt="Fresh burrata with heirloom tomatoes" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1885797773"></div> 
+ <div class="slide-inner" id="1362623813"> <div class="text-wrapper" id="1814963133"> <h3 class="slide-title" id="1512241138">Slide title</h3> 
+ <div class="slide-text richText" id="1292905168">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1733599691"> <span class="iconBg" id="1890472410"> <span class="icon hasFontIcon icon-star" id="1995397734"></span> 
+</span> 
+ <span class="text" id="1520193127">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1730719811" class="u_1730719811"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta11-ab7ac203-1920w.jpg" id="1515118484" alt="Exclusive cuisine exclusive gastronomy " onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1262151566"></div> 
+ <div class="slide-inner" id="1985085895"> <div class="text-wrapper" id="1881522689"> <h3 class="slide-title" id="1363004438">Slide title</h3> 
+ <div class="slide-text richText" id="1248515220">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1396508843"> <span class="iconBg" id="1614805493"> <span class="icon hasFontIcon icon-star" id="1895724130"></span> 
+</span> 
+ <span class="text" id="1131805662">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1612423844" class="u_1612423844"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta12-1920w.jpg" id="1832663674" alt="Salmon tartan with fresh jalapeño and avocado" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1569127428"></div> 
+ <div class="slide-inner" id="1212109891"> <div class="text-wrapper" id="1559488437"> <h3 class="slide-title" id="1302575667">Slide title</h3> 
+ <div class="slide-text richText" id="1255333179">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1783718780"> <span class="iconBg" id="1994280148"> <span class="icon hasFontIcon icon-star" id="1483594858"></span> 
+</span> 
+ <span class="text" id="1467558430">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1165670424"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/CATERING+-1920w.jpg" id="1224976964" alt="Seleccion de postres elaborados por fedegastronomy" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1381911423"></div> 
+ <div class="slide-inner" id="1027796402"> <div class="text-wrapper" id="1383355962"> <h3 class="slide-title" id="1647167387">Slide title</h3> 
+ <div class="slide-text richText" id="1036033578">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1546638218"> <span class="iconBg" id="1200070765"> <span class="icon hasFontIcon icon-star" id="1115291644"></span> 
+</span> 
+ <span class="text" id="1885820365">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1152284733"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/blob-0029-1920w.png" id="1382590651" alt="Tuna tartar with lemon aioli and cayenne tuile" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1351161190"></div> 
+ <div class="slide-inner" id="1872955835"> <div class="text-wrapper" id="1593425452"> <h3 class="slide-title" id="1779002806">Slide title</h3> 
+ <div class="slide-text richText" id="1750567217">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1482047402"> <span class="iconBg" id="1200065500"> <span class="icon hasFontIcon icon-star" id="1245613501"></span> 
+</span> 
+ <span class="text" id="1757571492">Button</span> 
+</div> 
+</div> 
+</li> 
+</ul> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_Services dmRespRow" id="Services" data-anchor="Services"> <div class="dmRespColsWrapper" id="1345199978"> <div class="dmRespCol large-12 medium-12 small-12 u_1946014138" id="1946014138"> <div class="u_1912902769 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1912902769" style="transition: none 0s ease 0s; text-align: left; display: block;"> <h1 class="m-text-align-center text-align-center"><span style="display: unset;">Services</span></h1> 
+</div> 
+ <div class="u_1426421135 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1426421135"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" id="1760915927" class="svg u_1760915927" data-icon-name="food_and_drinks_fork_knife"> <title id="1742537721">tenedor slogan</title> 
+ <path d="M23.22,10.47c1.24-1.53,1.9-1.82,3.11.09,6.36,10,12.63,20.07,19.27,29.89,5.75,8.5,11.95,16.7,18,25q6.1,8.46,12.21,16.91c1.58,2.18,1.27,3.79-1,5.24L71.12,90c-2.12,1.34-3.61,1-4.86-1.17q-5-8.73-10-17.49C52.15,64.24,48.06,57.16,44,50c-.55-1-1-1.09-2-.64-4.29,1.92-7-2.85-9.14-7-3.43-6.61-6.73-13.28-10-20C21.84,20.33,21.17,13,23.22,10.47Z"></path> 
+ <path d="M55.11,50.37c-1-1.43-2.73-4.34-3.82-5.73,0-1.09,1.39-2.2,1.93-2.72a2.41,2.41,0,0,0,.56-2.59c-.65-2.5-1.33-5-.43-7.63a23,23,0,0,1,2.93-5.21c3.61-5.4,7.26-10.78,10.9-16.16a1.61,1.61,0,0,1,2.39-.6,1.55,1.55,0,0,1,.5,2.37q-5,8.13-10,16.25c-.37.6-.93,1.21-.07,1.89s1.52.61,2.2-.41c3.53-5.34,7.18-10.61,10.67-16,.87-1.33,1.51-1.35,2.43-.84a1.79,1.79,0,0,1,.48,2.72C72.37,21.13,69,26.61,65.66,32c-.58.93-.57,1.55.45,2.09s1.3-.05,1.74-.71Q73,25.66,78.26,17.92c1.18-1.76,1.76-2.33,3-1.38a1.43,1.43,0,0,1,.3,2.22c-4.23,6.78-8.4,13.6-12.7,20.35a9,9,0,0,1-6.52,4.3c-.09,0-4,1.24-5.35,3.44C56.9,47.2,55.54,50.14,55.11,50.37Z"></path> 
+ <path d="M44.28,54.74c1.44,2.5,2.73,4.79,4.06,7.06a1.19,1.19,0,0,1,0,1.37c-4.64,8.06-10.88,18-15.53,26.1a2.72,2.72,0,0,1-4,1c-1.48-.88-2.93-1.82-4.37-2.76-1.82-1.18-2.11-2.69-.81-4.49q8.43-11.72,16.88-23.41C41.2,58.64,43.5,55.82,44.28,54.74Z"></path> 
+</svg> 
+</div> 
+ <div class="u_1376045483 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1376045483" style="transition: none 0s ease 0s; text-align: left; display: block;"> <h2 class="m-text-align-center text-align-center"><span style="display: unset;">Culinary Consulting</span></h2> 
+</div> 
+ <div class="u_1549109829 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1549109829" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="m-text-align-justify text-align-center"><span style="font-weight: normal; display: unset;">For both, new concepts and established businesses in need of a fresh perspective. We design or refine menus, optimize operations, improve presentation, and align your culinary and brand strategies for long success.</span></p></div> 
+ <div class="u_1441661900 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1441661900"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1321680962" class="svg u_1321680962" data-icon-custom="true" data-icon-name="chef prep_642074.svg"> <title id="1223610939">Picar slogar</title> 
+ <g> <path d="m45.574 58.902c1.6172 0 2.9297-1.3125 2.9297-2.9336 0-1.1094-0.61719-2.0781-1.5312-2.5742-0.27734 1.5-1.4805 2.7305-3.0742 2.9648-1.6797 0.24219-3.2617 0.36719-4.707 0.37109-1.418 0-2.707-0.125-3.8906-0.35938-0.29297-0.058594-0.58203-0.125-0.86328-0.19531-1.207-0.3125-2.293-0.75781-3.2617-1.3516-1.9531-1.1758-3.4688-3.0859-4.1484-5.2461-0.375-1.1484-0.55859-2.3633-0.55859-3.707 0.007812-0.82031 0.078125-1.8789 0.30859-3.0977 0.16406-0.875 0.41016-1.8359 0.77344-2.8516 0.11719-0.33203 0.24609-0.66797 0.39062-1.0117l0.039063-0.089844 0.007812-0.019531 0.015625-0.035156c0.58984-1.3125 1.9023-2.1602 3.3438-2.1602 0.51953 0 1.0234 0.10938 1.5039 0.32422 1.8398 0.82812 2.668 3.0039 1.8398 4.8438-0.035156 0.078124-0.066406 0.16016-0.10547 0.26562-0.078126 0.20703-0.19922 0.54297-0.32422 0.96484-0.14062 0.47266-0.46094 1.6875-0.45703 2.8633-0.003907 0.79687 0.14453 1.4766 0.41406 1.9258 0.24219 0.38672 0.55859 0.77734 1.6445 1.1641 0.011719 0.003907 0.027344 0.007813 0.042969 0.011719 0.29297-2.168 0.63281-4.2109 0.89844-5.9844 0.88672-3.6914-0.6875-7.9883-3.8477-8.625-3.1602-0.63672-7.6133 1.2656-9.2148 6.707-2.1562 7.5-2.4727 12.328-1.1602 20.418 0.92188 3.8164 2.9766 5.3203 5.2266 5.8477 0.51562 2.4648 0.98438 5.8398 0.98047 9.9805 0 4.6875-0.59375 10.371-2.3984 16.875-0.67578 2.4375 0.75 4.9609 3.1914 5.6367 0.41016 0.11328 0.82422 0.16797 1.2266 0.16797 2.0078 0 3.8477-1.3281 4.4102-3.3555 2.0352-7.3359 2.7344-13.859 2.7305-19.328 0-7.9336-1.4609-13.617-2.3867-16.43-0.19141-1.375-0.26953-2.793-0.26562-4.2266 2.6758 1.4023 6.0703 2.2422 10.25 2.2422 0.011719 0.007813 0.019531 0.007813 0.027344 0.007813z"></path> 
+ <path d="m32.594 16.488c1.1719-0.58203 2.4688-0.90625 3.8164-0.94531 2.4453-0.066407 4.7695 0.82422 6.5469 2.5078 0.082031 0.078125 0.16406 0.15625 0.24219 0.23828 0.89453 0.91016 1.5547 1.9609 1.9961 3.0742l5.7812-11.199c1.082-0.14453 1.9219-0.61719 2.2695-1.3945 0.71875-1.6133-0.9375-3.9219-3.707-5.1562-1.2188-0.54297-2.4453-0.78516-3.5-0.75391-0.67969-0.80859-1.6836-1.5586-2.8984-2.1016-2.7656-1.2344-5.5938-0.92578-6.3125 0.6875-0.34766 0.77734-0.13672 1.7188 0.48047 2.6211z"></path> 
+ <path d="m42.328 18.715c-2.8516-2.6992-7.1211-2.9609-10.25-0.86328-0.5 0.33594-0.97266 0.72266-1.4023 1.1758-3.1328 3.3047-2.9922 8.5234 0.3125 11.652 3.3047 3.1328 8.5234 2.9922 11.652-0.3125 2.0586-2.1719 2.6914-5.1641 1.957-7.8516-0.38281-1.4023-1.1367-2.7266-2.2695-3.8008z"></path> 
+ <path d="m65.195 47.387s-1.9922-0.44141-3.4805-0.12891c-1.4883 0.3125-11.234 2.3672-11.242 2.3672l-0.99219 0.20703s-1.5391 0.32422-3.2031 0.67578c0.37109 0.48438 0.63281 1.0625 0.72266 1.6992 0.054688 0.37109 0.046875 0.73438-0.003906 1.0859 2.4219-0.51953 2.957-1.207 2.957-1.207l0.003906 0.019531s0.62891-0.29688 0.95312 1.25l0.33203-0.070313 0.35156 1.668c0-0.003906 11.691-1.8789 13.602-7.5664z"></path> 
+ <path d="m33.555 42.801c0.125-0.42969 0.25-0.78516 0.33984-1.0195 0.042969-0.11719 0.082031-0.20703 0.10156-0.25781 0.007812-0.023438 0.015625-0.039063 0.019531-0.046876 0.66406-1.4766 0.003906-3.2109-1.4688-3.875-1.4766-0.66406-3.2109-0.007812-3.875 1.4688-0.007813 0.019532-0.027344 0.066407-0.050781 0.12891-0.25391 0.61328-1.3867 3.3008-1.4141 6.6602v0.015625c0 1.0977 0.13281 2.2812 0.52344 3.4883 0.57031 1.8008 1.8438 3.6445 3.832 4.8398 0.23047 0.14062 0.46875 0.26953 0.71094 0.39062 0.91016 0.46094 1.9219 0.80078 3.043 1.0312 1.1758 0.24609 2.4609 0.375 3.8789 0.375 1.3945 0 2.9219-0.11719 4.6016-0.36328 1.2109-0.17578 2.1406-1.0664 2.4219-2.1836 0.027344-0.10547 0.046875-0.21094 0.0625-0.32031 0.035156-0.26562 0.039062-0.53906 0-0.81641-0.09375-0.64062-0.39062-1.2031-0.8125-1.6328-0.63281-0.64062-1.5508-0.98828-2.5078-0.84766-1.4453 0.21094-2.6953 0.30078-3.7578 0.30078-1.4766 0-2.5859-0.17578-3.3906-0.42578-0.0625-0.019532-0.12891-0.039063-0.19141-0.058594-0.027344-0.011719-0.050782-0.019532-0.078125-0.03125-1.168-0.42969-1.6094-0.90234-1.9492-1.4492-0.33594-0.5625-0.51953-1.3594-0.51562-2.3008 0-0.20703 0.011719-0.42188 0.027344-0.63281 0.054687-0.86719 0.24609-1.75 0.44922-2.4375z"></path> 
+ <path d="m44.852 60.426h33.348v39.574h-33.348z"></path> 
+ <path d="m50.719 57.172c-0.65625 0-1.1914 0.53125-1.1914 1.1914 0 0.65625 0.53125 1.1914 1.1914 1.1914h7.1445c0.65625 0 1.1914-0.53125 1.1914-1.1914 0-0.65625-0.53125-1.1914-1.1914-1.1914z"></path> 
+ <path d="m60.754 59.555h7.1445c0.65625 0 1.1914-0.53125 1.1914-1.1914 0-0.65625-0.53125-1.1914-1.1914-1.1914h-7.1445c-0.65625 0-1.1914 0.53125-1.1914 1.1914 0 0.65625 0.53125 1.1914 1.1914 1.1914z"></path> 
+</g> 
+</svg> 
+</div> 
+ <div class="u_1518807621 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1518807621" style="transition: none 0s ease 0s; text-align: left; display: block;"> <h2 class="m-text-align-center text-align-center"><span style="display: unset;">Private Dining</span></h2> 
+</div> 
+ <div class="u_1029134579 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1029134579" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="m-text-align-justify text-align-center"><span style="font-weight: normal; display: unset;">Custom designed tasting menus for intimate dinners, anniversaries, or special gatherings. Each experience is created hand in hand with the client to ensure a unique and memorable evening.</span></p></div> 
+ <div class="u_1640349396 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1640349396"> <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" id="1232104538" class="svg u_1232104538" data-icon-name="food_and_drinks_clinking_glasses"> <title id="1528972201">brindar</title> 
+ <path d="M24.93,89.38a3.51,3.51,0,0,1-1.17-.22c-3.17-1.12-6-2.13-9-3.11a2.67,2.67,0,0,1-1.69-1.32,2.73,2.73,0,0,1,0-2.18,2.48,2.48,0,0,1,3.35-1.66,8.12,8.12,0,0,0,2,.45,9.2,9.2,0,0,0,.73-1.82q.67-1.92,1.32-3.84c.65-1.9,1.3-3.79,2-5.69a1,1,0,0,0-.13-1.15,21.94,21.94,0,0,1-3.68-22,102.71,102.71,0,0,1,8.76-18.5,3.07,3.07,0,0,1,4.15-1.5c4.6,1.65,9.32,3.23,13.89,4.76l1.9.64a2.82,2.82,0,0,1,2.24,3.14c-1.3,8.52-2.63,17.28-6.9,25.24-2.74,5.12-7.29,8.53-13.51,10.15a2.08,2.08,0,0,0-1.8,1.63c-1.18,3.78-2.5,7.51-3.64,10.67a2.37,2.37,0,0,0-.08.27l.18,0a7,7,0,0,1,.9.27,5.28,5.28,0,0,0,.62.19,2.65,2.65,0,0,1,1.84,1.2,2.83,2.83,0,0,1,.08,2.34A2.71,2.71,0,0,1,26,89.15,2.29,2.29,0,0,1,24.93,89.38Zm-9.47-6.66c-.24,0-.32.15-.45.51s-.11.61-.1.63.17.18.52.29c3,1,5.82,2,9,3.12a1,1,0,0,0,.64.08c.08,0,.2-.2.3-.52.18-.54.09-.71.08-.73s-.2-.17-.54-.24a7.4,7.4,0,0,1-.86-.26,5,5,0,0,0-.64-.2,2.26,2.26,0,0,1-1.57-1,2.36,2.36,0,0,1,0-2C23,79.31,24.3,75.6,25.46,71.86a4,4,0,0,1,3.21-3c5.67-1.47,9.79-4.56,12.25-9.16,4.1-7.66,5.41-16.24,6.68-24.55,0-.4,0-.69-.89-1l-1.89-.64c-4.57-1.54-9.3-3.12-13.93-4.78-.94-.34-1.24-.23-1.75.63a100.82,100.82,0,0,0-8.6,18.14A20.06,20.06,0,0,0,23.9,67.61a2.9,2.9,0,0,1,.45,3c-.67,1.89-1.31,3.78-2,5.67q-.66,1.93-1.33,3.85c-1.16,3.35-1.74,3.64-5.15,2.63A1.72,1.72,0,0,0,15.46,82.72Z"></path> 
+ <path d="M75.07,89.38a2.29,2.29,0,0,1-1-.23,2.71,2.71,0,0,1-1.32-1.7,2.83,2.83,0,0,1,.08-2.34,2.65,2.65,0,0,1,1.84-1.2,5.24,5.24,0,0,0,.62-.19,7,7,0,0,1,.9-.27l.18,0a2.43,2.43,0,0,0-.08-.27c-1.14-3.16-2.46-6.89-3.64-10.67a2.08,2.08,0,0,0-1.8-1.63c-6.23-1.62-10.77-5-13.51-10.15-4.26-8-5.6-16.72-6.89-25.19v0a2.82,2.82,0,0,1,2.24-3.14l1.9-.64c4.56-1.53,9.29-3.11,13.89-4.76a3.07,3.07,0,0,1,4.15,1.5,102.69,102.69,0,0,1,8.76,18.5,21.94,21.94,0,0,1-3.68,22A1,1,0,0,0,77.54,70c.67,1.89,1.32,3.79,2,5.69q.66,1.92,1.32,3.84a7.73,7.73,0,0,0,.76,1.84,10.14,10.14,0,0,0,1.93-.47,2.48,2.48,0,0,1,3.35,1.66,2.72,2.72,0,0,1,0,2.18,2.67,2.67,0,0,1-1.69,1.32c-2.93,1-5.79,2-9,3.11A3.52,3.52,0,0,1,75.07,89.38ZM52.4,35.21c1.27,8.3,2.58,16.88,6.67,24.52,2.46,4.61,6.59,7.69,12.25,9.16a4,4,0,0,1,3.21,3C75.7,75.6,77,79.31,78.15,82.45a2.36,2.36,0,0,1,0,2,2.26,2.26,0,0,1-1.58,1,5.06,5.06,0,0,0-.64.2,7.36,7.36,0,0,1-.86.26c-.33.07-.5.18-.54.24s-.09.19.08.73c.11.33.23.48.3.52a1,1,0,0,0,.64-.08c3.18-1.13,6-2.14,9-3.12.36-.12.5-.24.52-.29s.07-.16-.1-.63-.27-.61-.9-.42c-3.41,1-4,.72-5.15-2.63q-.67-1.92-1.33-3.85c-.65-1.89-1.3-3.78-2-5.67a2.9,2.9,0,0,1,.45-3,20.05,20.05,0,0,0,3.37-20.06,100.8,100.8,0,0,0-8.6-18.14c-.51-.87-.81-1-1.75-.63-4.62,1.66-9.35,3.24-13.93,4.78l-1.89.64C52.4,34.49,52.36,34.77,52.4,35.21Z"></path> 
+ <path d="M48.71,19.06c0-1,0-2,0-3,0-.58.24-1.13,1.4-1.1s1.35.55,1.35,1.15c0,2,0,3.94,0,5.92,0,.63-.24,1.2-1.42,1.19s-1.33-.57-1.33-1.15Q48.71,20.58,48.71,19.06Z"></path> 
+ <path d="M58.36,24.34a1.31,1.31,0,0,1-1.23-.49.94.94,0,0,1,0-1.3,60.42,60.42,0,0,1,5.81-5.09,1.16,1.16,0,0,1,1.45.1c.48.37.74.94.34,1.36a56.13,56.13,0,0,1-6,5.31A.91.91,0,0,1,58.36,24.34Z"></path> 
+ <path d="M36.63,17.38a1.79,1.79,0,0,1,1.22.58l4.67,4.11c.69.6,1,1.28.23,2s-1.47.31-2.12-.26q-2.37-2.11-4.77-4.2a1.18,1.18,0,0,1-.47-1.47A1.28,1.28,0,0,1,36.63,17.38Z"></path> 
+</svg> 
+</div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1061570470" style="transition: opacity 1s ease-in-out 0s;"> <h2 class="text-align-center m-text-align-center"><span style="display: initial;">Catering</span></h2> 
+</div> 
+ <div class="u_1935636556 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1935636556" style="transition: none 0s ease 0s; display: block; text-align: left;"><p class="m-text-align-justify text-align-center"><span style="font-weight: normal; display: initial;">Flexible catering solutions for corporate and social events ranging from elegant fine dining to elevated street food concepts. Perfect for brand activations, launches, fashion events, and premium celebrations.</span></p></div> 
+ <div class="u_1462116245 graphicWidget" data-element-type="graphic" data-widget-type="graphic" id="1462116245"> <svg width="100%" height="100%" version="1.1" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="1235839085" class="svg u_1235839085" data-icon-custom="true"> <title id="1938970697">tupper</title> 
+ <path d="m87.82 72.551-4.6094-16.57c-0.44141-1.5586-2.0195-2.6602-3.8516-2.6719l0.12109-0.51953h1.3516c1.2617 0 2.4219-0.55078 3.1094-1.4609 0.57812-0.76172 0.76172-1.6992 0.51172-2.5898l-4.1914-15.07c-0.41016-1.4688-1.8984-2.4883-3.6211-2.4883h-4.6211l0.28906-1.5312h0.78125c0.94141 0 1.8086-0.42188 2.3906-1.1484 0.57812-0.73047 0.78906-1.6719 0.57812-2.5781l-3.1406-13.559c-0.32812-1.3906-1.5391-2.3594-2.9688-2.3594l-39.898-0.003906c-1.4297 0-2.6484 0.96875-2.9688 2.3594l-3.1406 13.559c-0.21094 0.91016 0 1.8516 0.57812 2.5781 0.57812 0.73047 1.4492 1.1484 2.3906 1.1484h0.17188l0.28906 1.5312h-4.0117c-1.7188 0-3.2109 1.0312-3.6211 2.4883l-4.1914 15.07c-0.25 0.89062-0.070313 1.8281 0.51172 2.5898 0.69141 0.91016 1.8516 1.4609 3.1094 1.4609h0.53125l0.14062 0.60156c-1.4688 0.28125-2.6719 1.2617-3.0508 2.5898l-4.6094 16.57c-0.26953 0.94922-0.070313 1.9609 0.55078 2.7695 0.73828 0.98047 1.9883 1.5586 3.3398 1.5586h0.67188l1.8984 8.2812c0.64062 2.8008 3.5312 4.8398 6.8789 4.8398h48.059c3.3516 0 6.2383-2.0391 6.8789-4.8398l1.8984-8.2812h1.5703c1.3516 0 2.6016-0.57812 3.3398-1.5586 0.62109-0.80859 0.82031-1.8203 0.55078-2.7695zm-58.789-59.742c0.10938-0.48047 0.53125-0.80859 1.0195-0.80859h39.898c0.48828 0 0.91016 0.32812 1.0195 0.80859l1.8711 8.0898h-45.68zm-2.1211 14.84c-0.32031 0-0.62109-0.14063-0.82031-0.39063-0.19922-0.25-0.26953-0.57812-0.19922-0.89062l0.80078-3.4688h46.621l0.80078 3.4688c0.070313 0.30859 0 0.64062-0.19922 0.89062-0.19922 0.25-0.5 0.39063-0.82031 0.39063zm28.449 2-2.4414 8.7383h-19.578c-1.4883 0-2.7617-1.0586-3.0391-2.5195l-1.1914-6.2188zm-33.688 4.5625c0.16016-0.58984 0.89062-1.0312 1.6914-1.0312h4.3906l0.58984 3.0703c0.44922 2.3984 2.5586 4.1406 5 4.1406h32.711c2.4414 0 4.5391-1.7383 5-4.1406l0.57812-3.0703h5.0117c0.80078 0 1.5312 0.44141 1.6992 1.0312l2.5195 9.0898h-61.723zm-2.5 16.578c-0.62109 0-1.2109-0.26172-1.5195-0.67187-0.14062-0.17969-0.28125-0.48047-0.17969-0.85156l1.1094-3.9688h62.84l1.1094 3.9805c0.10156 0.35938-0.039062 0.66016-0.17969 0.83984-0.30859 0.41016-0.89062 0.67187-1.5195 0.67187zm38.348 2-3.3281 9.9219h-26.441c-2.1602 0-4-1.2305-4.3906-2.9219l-1.6094-7zm-38.801 3.7305c0.17188-0.60938 0.80078-1.0586 1.5703-1.1797l1.1211 4.8984c0.58984 2.5898 3.2617 4.4688 6.3398 4.4688h43.68c3.0781 0 5.75-1.8789 6.3398-4.4688l1.1289-4.9414h0.42187c0.94141 0 1.7617 0.51172 1.9609 1.2188l2.8203 10.121-68.203 0.003906zm35.973 31.48h-29.172c-2.4219 0-4.5-1.3789-4.9414-3.2891l-1.7891-7.8281h39.629l-3.7305 11.121zm30.988-13.891c-0.37109 0.48828-1.0195 0.76953-1.75 0.76953h-24.18c-0.011719 0.011719-0.011719 0-0.019531 0h-43.66c-0.73047 0-1.3789-0.28125-1.75-0.76953-0.16016-0.21875-0.33984-0.57812-0.21094-1.0312l1.2383-4.4414h69.238c0.019531 0 0.039062-0.019531 0.058593-0.019531l1.2383 4.4688c0.12891 0.44141-0.050781 0.80078-0.21094 1.0195z"></path> 
+</svg> 
+</div> 
+ <div class="dmNewParagraph u_1360386392" data-element-type="paragraph" data-version="5" id="1360386392" style="transition: opacity 1s ease-in-out; text-align: left; display: block;"> <h2 class="m-text-align-center text-align-center"><span style="display: initial;">Meal Prep</span></h2> 
+</div> 
+ <div class="u_1451023304 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1451023304" style="transition: none; display: block; text-align: left;"><p class="text-align-justify m-text-align-justify"><span class="" style="font-weight: normal; display: initial;"><span style="font-weight: normal; display: initial;">Weekly curated meal prep tailored to your lifestyle. From healthy family menus to personalized plans for professionals, athletes, or busy New Yorkers, we deliver flavor, nutrition, and convenience.</span> 
+</span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow u_1667174810" id="1667174810" data-page-element-type="section" data-page-element-id="1405311278"> <div class="dmRespColsWrapper" id="1497932634"> <div class="dmRespCol large-12 medium-12 small-12 u_1957050150" id="1957050150"> <div class="dmNewParagraph u_1165476721" data-element-type="paragraph" data-version="5" id="1165476721"><p style="text-transform:uppercase;" class="text-align-center"><span style="display: unset; text-transform: uppercase;">Elevate Your Culinary Experience</span></p></div> 
+ <div class="u_ContactUs dmNewParagraph" data-element-type="paragraph" data-version="5" id="ContactUs" style="transition: none 0s ease 0s; text-align: left; display: block;" data-anchor="Contact Us"> <h2 class="text-align-center"><a href="/signin#dm" runtime_url="/signin#dm" type="anchor" style="display: unset;">Book Your Chef Consultation</a></h2> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1186558418 dmRespRow fullBleedChanged fullBleedMode" id="1186558418" data-page-element-type="section" data-page-element-id="1405311278"> <div class="dmRespColsWrapper" id="1870263317"> <div class="dmRespCol large-12 medium-12 small-12 u_1704421406" id="1704421406"> <div class="u_1602818319 dmPhotoGallery newPhotoGallery dmPhotoGalleryResp button_2 photo-gallery-done text-layout-bottom captionAlignment-center_left photoGallery" galleryoptionsparams="{thumbnailsPerRow: 3, rowsToShow: 3, imageScaleMethod: true}" data-desktop-layout="square" data-desktop-columns="4" data-element-type="dPhotoGalleryId" data-desktop-text-layout="bottom" id="1602818319" data-desktop-caption-alignment="center_left" data-image-hover-effect="opacity" data-rows-to-show="2" data-mobile-columns="1" data-mobile-caption-alignment="top_left" data-mobile-layout="square" data-auto-adjust-columns="true" data-anim-extended="eyJkZXNrdG9wIjp7InRyaWdnZXIiOiJub25lIiwiYW5pbWF0aW9uIjpudWxsfX0=" data-placeholder="false"> <div class="dmPhotoGalleryHolder clearfix gallery shadowEffectToChildren gallery4inArow" id="1362986591"></div> 
+ <div class="layout-container square"> <div class="photogallery-row " data-index=""> <div class="photogallery-column column-4" data-index="0"> <div index="0" class="photoGalleryThumbs animated  " data-index="0"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1788748372" data-dm-force-device="mobile" class="u_1366410210" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/PHOTO-2023-12-17-01-13-54.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/PHOTO-2023-12-17-01-13-54-640w.jpg');"><img id="1925134557" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/PHOTO-2023-12-17-01-13-54-1920w.jpg" alt="Chefs Marriott" aria-labelledby="1788748372" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1584461578" class="caption-container u_1584461578" style="display:none"> <span class="caption-inner"> <h3 id="1788748372" class="caption-title u_1788748372">Culinary Consulting</h3> 
+ <div id="1411014759" class="caption-text u_1411014759"><br/><p class="rteBlock">For both, new concepts and established businesses in need of a fresh perspective. We design or refine menus, optimize operations, improve presentation, and align your culinary and brand strategies for long success.</p></div> 
+ <a id="1551258801" class="caption-button dmWidget  clearfix u_1551258801" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="1"> <div index="1" class="photoGalleryThumbs animated  " data-index="1"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1384421671" data-dm-force-device="mobile" class="u_1414481577" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/Private.jpeg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/Private-640w.jpeg');"><img id="1334331946" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/Private-1920w.jpeg" alt="Visita a bodega de vinos como parte de experiencia gastronómica" aria-labelledby="1384421671" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1402169736" class="caption-container u_1402169736" style=""> <span class="caption-inner"> <h3 id="1384421671" class="caption-title u_1384421671">Private Dining</h3> 
+ <div id="1872059926" class="caption-text u_1872059926"><br/><p class="rteBlock">Custom designed tasting menus for intimate dinners, anniversaries, or special gatherings. Each experience is created hand in hand with the client to ensure a unique and memorable evening.</p></div> 
+ <a id="1967230642" class="caption-button dmWidget  clearfix u_1967230642" href="/" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Book Your Experience</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="2"> <div index="2" class="photoGalleryThumbs animated  " data-index="2"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1260641400" data-dm-force-device="mobile" class="u_1428317422" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta16.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta16-640w.jpg');"><img id="1572274367" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta16-1920w.jpg" alt="Salmon tataki" aria-labelledby="1260641400" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1160497336" class="caption-container u_1160497336" style=""> <span class="caption-inner"> <h3 id="1260641400" class="caption-title u_1260641400">Catering</h3> 
+ <div id="1571706675" class="caption-text u_1571706675"><br/><p class="rteBlock">Flexible catering solutions for corporate and social events ranging from elegant fine dining to elevated street food concepts. Perfect for brand activations, launches, fashion events, and premium celebrations.</p></div> 
+ <a id="1487919837" class="caption-button dmWidget  clearfix u_1487919837" href="/" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Manage Your Booking</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="3"> <div index="3" class="photoGalleryThumbs animated  " data-index="3"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-labelledby="1705514671" data-dm-force-device="mobile" class="u_1978392608" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/blob-0026-4a600cdd.png" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/blob-0026-4a600cdd-640w.png');"><img id="1466354931" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/blob-0026-4a600cdd-1920w.png" alt="Fresh burrata with heirloom tomatoes" aria-labelledby="1705514671" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1649931762" class="caption-container u_1649931762" style=""> <span class="caption-inner"> <h3 id="1705514671" class="caption-title u_1705514671">Meal Prep</h3> 
+ <div id="1492070544" class="caption-text u_1492070544"><br/><p class="rteBlock">Weekly curated meal prep tailored to your lifestyle. From healthy family menus to personalized plans for professionals, athletes, or busy New Yorkers, we deliver flavor, nutrition, and convenience.</p></div> 
+ <a id="1704175780" class="caption-button dmWidget  clearfix u_1704175780" href="/" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Schedule Now</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <a data-display-type="block" class="align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient flexButton u_1818469957" file="false" href="/online-scheduling78969ea2" data-element-type="dButtonLinkId" id="1818469957" link_type="popup" popup_target="online-scheduling78969ea2" data-buttonstyle="ROUND_SIDES"> <span class="iconBg" aria-hidden="true" id="1342582384"> <span class="icon hasFontIcon icon-star" id="1393802439"></span> 
+</span> 
+ <span class="text" id="1032290707">&iexcl;Book Now!</span> 
+</a> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="Philosophy" data-anchor="Philosophy"> <div class="dmRespColsWrapper" id="1066832288"> <div class="dmRespCol large-12 medium-12 small-12" id="1081464388"> <div class="u_1240944937 dmNewParagraph ql-disabled" data-element-type="paragraph" data-version="5" id="1240944937" style="transition: opacity 1s ease-in-out 0s;"> <h1 class="text-align-center m-text-align-center"><span style="display: unset;">Philosophy</span></h1> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1773065273 dmRespRow" id="1773065273"> <div class="dmRespColsWrapper" id="1080818098"> <div class="dmRespCol large-12 medium-12 small-12" id="1344664518"> <div class="u_1557329758 imageWidget align-center hasHover" data-element-type="image" data-widget-type="image" id="1557329758" data-anim-extended="eyJtb2JpbGUiOnsidHJpZ2dlciI6ImVudHJhbmNlIiwiYW5pbWF0aW9uIjoiYm91bmNlSW5SaWdodCIsImR1cmF0aW9uIjowLjksImRlbGF5IjowLCJpbnRlbnNpdHkiOjAuM319" data-anim-mobile="bounceInRight"> <a id="1829049067"><img src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/PHOTO-2023-12-17-01-13-50-1920w.jpg" alt="fede gastronomy" id="1457588000" class="" data-dm-image-path="https://irp.cdn-website.com/fac8700a/dms3rep/multi/PHOTO-2023-12-17-01-13-50.jpg" data-hover-effect="float" width="544" height="800" onerror="handleImageLoadError(this)"/></a> 
+<img src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/Private-1920w.jpeg" class="hover-image" fetchpriority="low" aria-hidden="true" id="1495386996" alt="Visita a bodega de vinos como parte de experiencia gastronómica" onerror="handleImageLoadError(this)"/></div> 
+ <div class="u_1625763391 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1625763391" style="transition: none 0s ease 0s; text-align: left; display: block;"> <h2 class="m-text-align-center text-align-center"><span style="display: initial;"><br/></span></h2> 
+ <h2 class="m-text-align-center text-align-center"><span style="display: initial;"><br/></span></h2> 
+ <h2 class="m-text-align-center text-align-center"><span style="display: initial;">Mission</span></h2> 
+ <h2 class="text-align-center m-text-align-center"><span style="display: initial;"><br/></span></h2> 
+<p class="text-align-justify m-text-align-justify"><span style="font-weight: normal; display: initial;">At Fede Gastronomy, our mission is to be the trusted culinary partner for every client, delivering tailored solutions that adapt to their needs. We aim to exceed expectations and create memorable moments through food.</span></p> <h2 class="text-align-center m-text-align-center"><span style="display: initial;">Vision</span></h2> 
+ <h2><span style="display: initial;"><br/></span></h2> 
+<p class="text-align-justify m-text-align-justify"><span style="font-weight: normal; display: initial;">Our vision is to bring people together through gastronomy, offering authentic experiences that connect cultures, flavors, and traditions. We aspire to become a globally recognized brand that celebrates diversity while respecting culinary roots.</span></p><p><span style="display: initial;"><br/></span></p> <h2 class="text-align-center"><span style="display: initial;">Values</span></h2> 
+<p><span style="display: initial;"><br/></span></p> <ul class="defaultList bullet"><li><strong style="font-weight: bold; display: initial;">Sustainability and Social Responsibility</strong><span style="display: initial;">: We work with local producers and strive to minimize our ecological footprint.</span></li></ul> 
+<p><span style="display: initial;"><br/></span></p> <ul class="defaultList bullet"><li><strong style="font-weight: bold; display: initial;">Excellence</strong><span style="display: initial;">: From ingredients to presentation and service, every detail is executed to perfection.</span></li></ul> 
+<p><span style="display: initial;"><br/></span></p> <ul class="defaultList bullet"><li><strong style="font-weight: bold; display: initial;">Passion for Gastronomy</strong><span class="" style="display: initial;"><span style="display: initial;">:</span> 
+</span><strong style="display: initial; font-weight: 700;">&nbsp;</strong><span style="display: initial; font-weight: normal;">Our love for food shines through every dish and every event.</span></li></ul> 
+<p><span style="display: initial;"><br/></span></p> <ul class="defaultList bullet"><li><strong style="font-weight: bold; display: initial;">Innovation</strong><span style="display: initial;">: We embrace new trends and techniques to deliver unique experiences.</span></li></ul> 
+<p><span style="display: initial;"><br/></span></p> <ul class="defaultList bullet"><li><strong style="font-weight: bold; display: initial;">Teamwork</strong><span style="display: initial;">: We believe collaboration between clients, chefs, and service teams is essential for success.</span></li></ul> 
+<p><span style="display: initial;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span></p> <h2><span style="display: initial;"><br/></span></h2> 
+</div> 
+ <div class="u_1473055394 imageWidget align-center" data-element-type="image" data-widget-type="image" id="1473055394" data-anim-extended="eyJtb2JpbGUiOnsidHJpZ2dlciI6ImVudHJhbmNlIiwiYW5pbWF0aW9uIjoiYm91bmNlSW5MZWZ0IiwiZHVyYXRpb24iOjAuOSwiZGVsYXkiOjAsImludGVuc2l0eSI6MC4zfX0=" data-anim-mobile="bounceInLeft"> <a id="1865700401"><img src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/DSCF9414-2-1920w.jpg" alt="Small bute" id="1299870004" class="" data-dm-image-path="https://irp.cdn-website.com/fac8700a/dms3rep/multi/DSCF9414-2.jpg" width="1920" height="1280" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1731028715"> <div class="dmRespColsWrapper" id="1809546603"> <div class="dmRespCol large-12 medium-12 small-12" id="1159504695"> <div class="u_1590632939 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1590632939" style="transition: none 0s ease 0s; text-align: left; display: block;"> <h2 class="text-align-center m-text-align-center"><span style="display: initial;">Inspiration</span></h2> 
+ <h2 class="text-align-justify m-text-align-center"><span style="display: initial;"><br/></span></h2> 
+<p class="text-align-justify m-text-align-center"><span style="display: initial;">&ldquo;</span><span style="display: initial; font-style: italic;">My inspiration is born from international techniques applied to local ingredients: a cuisine that blends global methods with seasonal produce, honors its history, and elevates it with precision, creativity, and hospitality&mdash;always putting our guests first</span><span style="display: initial;">.&rdquo;</span></p><p class="text-align-center m-text-align-center"><span style="display: initial;">&nbsp; &nbsp;- Federico Aristizabal <br/></span></p></div> 
+</div> 
+</div> 
+</div> 
+ <section class="u_FedericoAristizabalVelez dmRespRow dmSectionParallex dmHomeSection2Parallex" id="FedericoAristizabalVelez" data-anchor="Federico Aristizabal Velez" data-anim-mobile="fadeIn" data-anim-extended="eyJtb2JpbGUiOnsidHJpZ2dlciI6ImVudHJhbmNlIiwiYW5pbWF0aW9uIjoiZmFkZUluIiwiZHVyYXRpb24iOjEuMjUsImRlbGF5IjowLCJpbnRlbnNpdHkiOjF9fQ=="> <div class="dmRespColsWrapper" id="1234072376"> <div class="u_1089304706 dmRespCol large-12 medium-12 small-12 hide-for-small hide-for-large empty-column" id="1089304706"></div> 
+</div> 
+</section> 
+ <div class="u_FedericoAristizabal dmRespRow" id="FedericoAristizabal" data-anchor="Federico Aristizabal"> <div class="dmRespColsWrapper" id="1619860283"> <div class="dmRespCol large-12 medium-12 small-12" id="1357598651"> <div class="dmNewParagraph u_1892792615" data-element-type="paragraph" data-version="5" id="1892792615" style="transition: none 0s ease 0s; text-align: left; display: block;"><p class="m-size-18 m-text-align-center text-align-center"><strong style="font-weight: bold; display: initial;" class="m-font-size-18" m-font-size-set="true">Federico Aristizabal Velez</strong><span style="display: initial;"><br/></span></p> <h1 class="m-text-align-center"><span style="display: initial;"><br/></span></h1> 
+<p class="m-text-align-justify" style="line-height: 1.38;"><span style="display: initial; font-weight: normal;">I&rsquo;m Federico Aristiz&aacute;bal V&eacute;lez, a Colombian chef with an international career. Since 2014, my journey has evolved significantly, and today I create tailored culinary experiences in New York City and beyond.</span></p><p class="m-text-align-justify" style="line-height: 1.38;"><span class="" style="display: initial; font-weight: normal;"><span style="display: initial; font-weight: normal;">My training at the Basque Culinary Center in San Sebasti&aacute;n, Spain, allowed me to specialize in the</span> 
+</span><span style="display: initial; font-weight: normal; font-style: italic;">Creation of Gastronomic and Tourism Experiences</span><span style="display: initial; font-weight: normal;">. There, I discovered how food can connect cultures, places, and people through flavor.</span></p><p class="m-text-align-justify" style="line-height: 1.38;"><span style="display: initial; font-weight: normal;">I&rsquo;ve had the privilege of working with renowned chefs such as Jean-Georges, Jimmie Rond&oacute;n, Gabriel Kreuther, Javier C&aacute;rcamo, and Alirio Rodr&iacute;guez, as well as enriching my experience at hotels like Marriott, Hyatt, Baccarat, and currently the prestigious Four Seasons Hotel in Downtown New York.</span></p><p class="m-text-align-justify" style="line-height: 1.38;"><span style="display: initial; font-weight: normal;">A key chapter in my career was my time at Water Street Associates (WSA) in Manhattan, where I helped build a culinary team from the ground up and design operational systems for new kitchens. With WSA, I took part in high-profile events such as:</span></p><p style="line-height: 1.38;"><span style="display: initial;"><br/></span></p> <ul class="defaultList bullet"><li style="line-height: 1.38;"><span style="display: initial; font-weight: normal;">Private dinners during New York Fashion Week (pop-up restaurant)<br/><br/></span></li><li style="line-height: 1.38;"><span style="display: initial; font-weight: normal;">The official Met Gala After Party<br/><br/></span></li><li style="line-height: 1.38;"><span style="display: initial; font-weight: normal;">The Nike Marathon<br/><br/></span></li></ul> 
+<p class="m-text-align-justify"><span style="display: initial; font-weight: normal;">Exclusive events for luxury brands like Gucci, and others across fashion, entertainment, and culture</span><span style="display: initial;"><br/><br/></span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1464374168"> <div class="dmRespColsWrapper" id="1929109242"> <div class="dmRespCol large-12 medium-12 small-12" id="1186326826"> <div class="u_1548444574 imageWidget align-center hasHover" data-element-type="image" data-widget-type="image" id="1548444574" data-anim-extended="eyJtb2JpbGUiOnsidHJpZ2dlciI6ImVudHJhbmNlIiwiYW5pbWF0aW9uIjoiem9vbUluIiwiZHVyYXRpb24iOjAuMjUsImRlbGF5IjowLjIsImludGVuc2l0eSI6MC42Mn19" data-anim-mobile="zoomIn"> <a id="1631877835"><img src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/PHOTO-2023-12-17-01-13-54-1920w.jpg" alt="Marriott Cheffs " id="1972147900" class="" data-dm-image-path="https://irp.cdn-website.com/fac8700a/dms3rep/multi/PHOTO-2023-12-17-01-13-54.jpg" width="800" height="600" onerror="handleImageLoadError(this)"/></a> 
+<img src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/IMG_3732-1920w.jpg" class="hover-image" fetchpriority="low" aria-hidden="true" id="1907910923" alt="Three men in an interior setting. Two wearing aprons, posing near a wooden surface." onerror="handleImageLoadError(this)"/></div> 
+ <div class="dmNewParagraph" data-element-type="paragraph" data-version="5" id="1271972527" data-styletopreserve="{" background-image":""}"=""><p class="text-align-center m-text-align-center"><span style="display: initial;">Restaurants he has worked on:</span></p><p class="text-align-center m-text-align-center"><span class="m-font-size-19 font-size-24" m-font-size-set="true" style="display: initial;"><br/></span></p><p class="text-align-center m-text-align-center"><span style="color: rgb(182, 182, 182); display: initial;">The Market by Marriot Hotel Cali</span></p><p class="text-align-center m-text-align-center"><span style="color: rgb(182, 182, 182); display: initial;">Tanoshii by Marriot Hotel Cali</span></p><p class="text-align-center m-text-align-center"><span style="color: rgb(182, 182, 182); display: initial;">Legasea by Tao Group</span></p><p class="text-align-center m-text-align-center"><span style="color: rgb(182, 182, 182); display: initial;">Feroce by Tao Group</span></p><p class="text-align-center m-text-align-center"><span style="color: rgb(182, 182, 182); display: initial;">Magic Hour Rooftop by Tao Group</span></p><p class="text-align-center m-text-align-center"><span style="color: rgb(182, 182, 182); display: initial;">Public Kitchen by Jean Georges</span></p><p class="text-align-center m-text-align-center"><span style="display: initial; color: rgb(190, 190, 190);">Baccarat Hotel</span></p><p class="text-align-center m-text-align-center"><span style="display: initial; color: rgb(190, 190, 190);">Happier</span></p><p class="text-align-center m-text-align-center"><span class="m-font-size-19 font-size-24" style="display: initial;"><br/></span></p><p class="text-align-center m-text-align-center"><span style="display: initial;">Currently I am at the Four Season Hotel in NY.</span></p><p><span style="display: initial;"><br/></span></p></div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="Gallery" data-anchor="Gallery"> <div class="dmRespColsWrapper" id="1291405666"> <div class="dmRespCol large-12 medium-12 small-12" id="1578985233"> <div class="u_1676849880 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1676849880" style="transition: opacity 1s ease-in-out 0s;"> <h1 class="m-text-align-center text-align-center"><span style="display: initial;">Culinary Gallery</span></h1> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1850887753"> <div class="dmRespColsWrapper" id="1668021800"> <div class="dmRespCol large-12 medium-12 small-12" id="1586099731"> <div class="u_1379134633 dmPhotoGallery newPhotoGallery dmPhotoGalleryResp hasShadow photo-gallery-done text-layout-over captionAlignment-center_center photoGallery" galleryoptionsparams="{thumbnailsPerRow: 3, rowsToShow: 3, imageScaleMethod: true}" data-desktop-layout="square" data-desktop-columns="4" data-element-type="dPhotoGalleryId" data-desktop-text-layout="over" id="1379134633" data-mobile-layout="square" data-rows-to-show="100" data-mobile-columns="2" data-mobile-text-layout="bottom" data-mobile-caption-alignment="center_left" data-placeholder="false" data-image-animation="flash"> <div class="dmPhotoGalleryHolder clearfix gallery shadowEffectToChildren gallery4inArow" id="1362986591"></div> 
+ <div class="layout-container square"> <div class="photogallery-row " data-index=""> <div class="photogallery-column column-4" data-index="0"> <div index="0" class="photoGalleryThumbs animated  " data-index="0"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Beef tartare topped with capers and mustard on a plate surrounded by waffle-cut potato chips." data-dm-force-device="mobile" class="u_1406254108" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta4.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta4-640w.jpg');"><img id="1863750210" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta4-1920w.jpg" alt="Beef tartare topped with capers and mustard on a plate surrounded by waffle-cut potato chips." aria-label="Beef tartare topped with capers and mustard on a plate surrounded by waffle-cut potato chips." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1152718593" class="caption-container u_1152718593" style="display:none"> <span class="caption-inner"> <a id="1936052744" class="caption-button dmWidget  clearfix u_1936052744" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="1"> <div index="1" class="photoGalleryThumbs animated  " data-index="1"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="A plate of seared steak atop pea purée, surrounded by carrot purée and garnished with edible flowers." data-dm-force-device="mobile" class="u_1141573912" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta10.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta10-640w.jpg');"><img id="1830327524" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta10-1920w.jpg" alt="A plate of seared steak atop pea purée, surrounded by carrot purée and garnished with edible flowers." aria-label="A plate of seared steak atop pea purée, surrounded by carrot purée and garnished with edible flowers." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1685084469" class="caption-container u_1685084469" style="display:none"> <span class="caption-inner"> <a id="1242366527" class="caption-button dmWidget  clearfix u_1242366527" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="2"> <div index="2" class="photoGalleryThumbs animated  " data-index="2"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Close-up of dessert on plates, layered pastry, white cream, and edible flowers; restaurant setting." data-dm-force-device="mobile" class="u_1258154409" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta11.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta11-640w.jpg');"><img id="1928710974" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta11-1920w.jpg" alt="Close-up of dessert on plates, layered pastry, white cream, and edible flowers; restaurant setting." aria-label="Close-up of dessert on plates, layered pastry, white cream, and edible flowers; restaurant setting." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1459213686" class="caption-container u_1459213686" style="display:none"> <span class="caption-inner"> <a id="1133221113" class="caption-button dmWidget  clearfix u_1133221113" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="3"> <div index="3" class="photoGalleryThumbs animated  " data-index="3"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Tempura shrimp with sauce on a wooden board.
+" data-dm-force-device="mobile" class="u_1629227829" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta13.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta13-640w.jpg');"><img id="1779514849" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta13-1920w.jpg" alt="Tempura shrimp with sauce on a wooden board.
+" aria-label="Tempura shrimp with sauce on a wooden board.
+" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1160663667" class="caption-container u_1160663667" style="display:none"> <span class="caption-inner"> <a id="1434321317" class="caption-button dmWidget  clearfix u_1434321317" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-4" data-index="4"> <div index="4" class="photoGalleryThumbs animated  " data-index="4"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Grilled lobster tails with herb butter and lemon wedges in a wooden bowl." data-dm-force-device="mobile" class="u_1430340929" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta14.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta14-640w.jpg');"><img id="1109875589" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta14-1920w.jpg" alt="Grilled lobster tails with herb butter and lemon wedges in a wooden bowl." aria-label="Grilled lobster tails with herb butter and lemon wedges in a wooden bowl." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1859634108" class="caption-container u_1859634108" style="display:none"> <span class="caption-inner"> <a id="1986703174" class="caption-button dmWidget  clearfix u_1986703174" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="5"> <div index="5" class="photoGalleryThumbs animated  " data-index="5"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Sushi-like dish with avocado base and shrimp topping in red bowl; garnished with sesame seeds and parsley." data-dm-force-device="mobile" class="u_1956252145" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta22.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta22-640w.jpg');"><img id="1874877735" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta22-1920w.jpg" alt="Sushi-like dish with avocado base and shrimp topping in red bowl; garnished with sesame seeds and parsley." aria-label="Sushi-like dish with avocado base and shrimp topping in red bowl; garnished with sesame seeds and parsley." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1227622350" class="caption-container u_1227622350" style="display:none"> <span class="caption-inner"> <a id="1526546793" class="caption-button dmWidget  clearfix u_1526546793" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="6"> <div index="6" class="photoGalleryThumbs animated  " data-index="6"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Bowls of green pasta topped with cheese and pistachios." data-dm-force-device="mobile" class="u_1670236065" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta35.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta35-640w.jpg');"><img id="1922284017" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta35-1920w.jpg" alt="Bowls of green pasta topped with cheese and pistachios." aria-label="Bowls of green pasta topped with cheese and pistachios." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1768893232" class="caption-container u_1768893232" style="display:none"> <span class="caption-inner"> <a id="1316918053" class="caption-button dmWidget  clearfix u_1316918053" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="7"> <div index="7" class="photoGalleryThumbs animated  " data-index="7"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Tuna tartare atop avocado, with chopped cucumber, in a dark sauce, on a white plate." data-dm-force-device="mobile" class="u_1051638849" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta25.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta25-640w.jpg');"><img id="1022325714" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta25-1920w.jpg" alt="Tuna tartare atop avocado, with chopped cucumber, in a dark sauce, on a white plate." aria-label="Tuna tartare atop avocado, with chopped cucumber, in a dark sauce, on a white plate." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1610167250" class="caption-container u_1610167250" style="display:none"> <span class="caption-inner"> <a id="1219592720" class="caption-button dmWidget  clearfix u_1219592720" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-4" data-index="8"> <div index="8" class="photoGalleryThumbs animated  " data-index="8"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Grilled scallops with quinoa salad and lemon wedge on a plate." data-dm-force-device="mobile" class="u_1183757176" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta37.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta37-640w.jpg');"><img id="1034167419" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta37-1920w.jpg" alt="Grilled scallops with quinoa salad and lemon wedge on a plate." aria-label="Grilled scallops with quinoa salad and lemon wedge on a plate." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1046461191" class="caption-container u_1046461191" style="display:none"> <span class="caption-inner"> <a id="1351371466" class="caption-button dmWidget  clearfix u_1351371466" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="9"> <div index="9" class="photoGalleryThumbs animated  " data-index="9"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="A gourmet dish: seared food with cucumber slices, green garnishes, and white sauce on a white plate." data-dm-force-device="mobile" class="u_1888178690" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta6.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta6-640w.jpg');"><img id="1906763298" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta6-1920w.jpg" alt="A gourmet dish: seared food with cucumber slices, green garnishes, and white sauce on a white plate." aria-label="A gourmet dish: seared food with cucumber slices, green garnishes, and white sauce on a white plate." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1251684057" class="caption-container u_1251684057" style="display:none"> <span class="caption-inner"> <a id="1640133243" class="caption-button dmWidget  clearfix u_1640133243" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="10"> <div index="10" class="photoGalleryThumbs animated  " data-index="10"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Salads with avocado, peas, and leafy greens on plates." data-dm-force-device="mobile" class="u_1343469187" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta36.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta36-640w.jpg');"><img id="1155836298" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta36-1920w.jpg" alt="Salads with avocado, peas, and leafy greens on plates." aria-label="Salads with avocado, peas, and leafy greens on plates." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1661951291" class="caption-container u_1661951291" style="display:none"> <span class="caption-inner"> <a id="1828585520" class="caption-button dmWidget  clearfix u_1828585520" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="11"> <div index="11" class="photoGalleryThumbs animated  " data-index="11"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="tomato and mozzarella salad" data-dm-force-device="mobile" class="u_1110689972" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta30.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta30-640w.jpg');"><img id="1355757669" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta30-1920w.jpg" alt="tomato and mozzarella salad" aria-label="tomato and mozzarella salad" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1743199941" class="caption-container u_1743199941" style="display:none"> <span class="caption-inner"> <a id="1152753482" class="caption-button dmWidget  clearfix u_1152753482" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-4" data-index="12"> <div index="12" class="photoGalleryThumbs animated  " data-index="12"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Plated dessert: crisp pastry with cream filling, topped with edible flowers and herbs." data-dm-force-device="mobile" class="u_1486649854" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta11-ab7ac203.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta11-ab7ac203-640w.jpg');"><img id="1093770011" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta11-ab7ac203-1920w.jpg" alt="Plated dessert: crisp pastry with cream filling, topped with edible flowers and herbs." aria-label="Plated dessert: crisp pastry with cream filling, topped with edible flowers and herbs." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1978970792" class="caption-container u_1978970792" style="display:none"> <span class="caption-inner"> <a id="1267114986" class="caption-button dmWidget  clearfix u_1267114986" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="13"> <div index="13" class="photoGalleryThumbs animated  " data-index="13"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Cooked lobster meat on a wooden plate, ready for preparation." data-dm-force-device="mobile" class="u_1560023796" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta32-cfa02f11.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta32-cfa02f11-640w.jpg');"><img id="1006111626" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta32-cfa02f11-1920w.jpg" alt="Cooked lobster meat on a wooden plate, ready for preparation." aria-label="Cooked lobster meat on a wooden plate, ready for preparation." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1292588347" class="caption-container u_1292588347" style="display:none"> <span class="caption-inner"> <a id="1503204442" class="caption-button dmWidget  clearfix u_1503204442" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="14"> <div index="14" class="photoGalleryThumbs animated  " data-index="14"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Seared tuna slices in yellow sauce topped with mango salsa and parsley, served on black plate." data-dm-force-device="mobile" class="u_1036193515" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta72.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta72-640w.jpg');"><img id="1360806726" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta72-1920w.jpg" alt="Seared tuna slices in yellow sauce topped with mango salsa and parsley, served on black plate." aria-label="Seared tuna slices in yellow sauce topped with mango salsa and parsley, served on black plate." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1501828776" class="caption-container u_1501828776" style="display:none"> <span class="caption-inner"> <a id="1904297311" class="caption-button dmWidget  clearfix u_1904297311" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="15"> <div index="15" class="photoGalleryThumbs animated  " data-index="15"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Three cucumber rolls with filling, sauce, and crispy topping on a plate." data-dm-force-device="mobile" class="u_1779415570" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta78.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta78-640w.jpg');"><img id="1799812872" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta78-1920w.jpg" alt="Three cucumber rolls with filling, sauce, and crispy topping on a plate." aria-label="Three cucumber rolls with filling, sauce, and crispy topping on a plate." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1175301796" class="caption-container u_1175301796" style="display:none"> <span class="caption-inner"> <a id="1737267071" class="caption-button dmWidget  clearfix u_1737267071" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-4" data-index="16"> <div index="16" class="photoGalleryThumbs animated  " data-index="16"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Slices of white fish topped with colorful diced vegetables on a dark, textured plate." data-dm-force-device="mobile" class="u_1058432332" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta70.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta70-640w.jpg');"><img id="1636596325" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta70-1920w.jpg" alt="Slices of white fish topped with colorful diced vegetables on a dark, textured plate." aria-label="Slices of white fish topped with colorful diced vegetables on a dark, textured plate." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1351982374" class="caption-container u_1351982374" style="display:none"> <span class="caption-inner"> <a id="1135289643" class="caption-button dmWidget  clearfix u_1135289643" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-4" data-index="17"> <div index="17" class="photoGalleryThumbs animated  " data-index="17"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Grilled fish with green vegetables and sauce on black plate." data-dm-force-device="mobile" class="u_1837627774" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta79.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta79-640w.jpg');"><img id="1480119638" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta79-1920w.jpg" alt="Grilled fish with green vegetables and sauce on black plate." aria-label="Grilled fish with green vegetables and sauce on black plate." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1328462918" class="caption-container u_1328462918" style="display:none"> <span class="caption-inner"> <a id="1241533027" class="caption-button dmWidget  clearfix u_1241533027" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1217390262 dmRespRow" style="text-align: center;" id="1217390262"> <div class="dmRespColsWrapper" id="1501619516"> <div class="dmRespCol small-12 medium-12 large-12 u_1518579099" id="1518579099"> <div class="u_1195763177 dmNewParagraph" data-element-type="paragraph" id="1195763177" style="transition: opacity 1s ease-in-out 0s; line-height: initial; text-align: center;" data-version="5"> <h1><span class="" style="display: initial;"><span style="display: initial;">Private and corporate events</span> 
+</span></h1> 
+</div> <div class="u_1466696171 dmPhotoGallery newPhotoGallery dmPhotoGalleryResp hasShadow photo-gallery-done text-layout-fixed captionAlignment-center_center photoGallery" galleryoptionsparams="{thumbnailsPerRow: 3, rowsToShow: 3, imageScaleMethod: true}" data-desktop-layout="square" data-desktop-columns="3" data-element-type="dPhotoGalleryId" data-desktop-text-layout="fixed" id="1466696171" data-rows-to-show="100" data-desktop-caption-alignment="center_center" data-image-hover-effect="blur" data-tablet-text-layout="fixed" data-tablet-caption-alignment="center_center" data-mobile-columns="2" data-mobile-text-layout="fixed" data-mobile-caption-alignment="center_center" data-placeholder="false" data-mobile-layout="square"> <div class="dmPhotoGalleryHolder clearfix gallery shadowEffectToChildren gallery4inArow" id="1362986591"></div> 
+ <div class="layout-container square"> <div class="photogallery-row " data-index=""> <div class="photogallery-column column-3" data-index="0"> <div index="0" class="photoGalleryThumbs animated  " data-index="0"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Chef preparando un plato gourmet en cocina profesional" data-dm-force-device="mobile" class="u_1698214172" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta24-f201faa9.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta24-f201faa9-640w.jpg');"><img id="1163236829" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta24-f201faa9-1920w.jpg" alt="Chef preparando un plato gourmet en cocina profesional" aria-label="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1397034057" class="caption-container u_1397034057" style="display:none"> <span class="caption-inner"> <a id="1054763135" class="caption-button dmWidget  clearfix u_1054763135" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="1"> <div index="1" class="photoGalleryThumbs animated  " data-index="1"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Sushi board" data-dm-force-device="mobile" class="u_1507792174" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta26.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta26-640w.jpg');"><img id="1051808385" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta26-1920w.jpg" alt="Sushi board" aria-label="Sushi board" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1694858175" class="caption-container u_1694858175" style="display:none"> <span class="caption-inner"> <a id="1893334084" class="caption-button dmWidget  clearfix u_1893334084" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="2"> <div index="2" class="photoGalleryThumbs animated  " data-index="2"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Chef preparando un plato gourmet en cocina profesional" data-dm-force-device="mobile" class="u_1134026644" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta46-555e387a.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta46-555e387a-640w.jpg');"><img id="1760818881" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta46-555e387a-1920w.jpg" alt="Chef preparando un plato gourmet en cocina profesional" aria-label="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1529328571" class="caption-container u_1529328571" style="display:none"> <span class="caption-inner"> <a id="1403371095" class="caption-button dmWidget  clearfix u_1403371095" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-3" data-index="3"> <div index="3" class="photoGalleryThumbs animated  " data-index="3"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Seared tuna steak crusted in black sesame seeds, resting on white paper towel." data-dm-force-device="mobile" class="u_1846587028" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta19.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta19-640w.jpg');"><img id="1051010062" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta19-1920w.jpg" alt="Seared tuna steak crusted in black sesame seeds, resting on white paper towel." aria-label="Seared tuna steak crusted in black sesame seeds, resting on white paper towel." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1126398595" class="caption-container u_1126398595" style="display:none"> <span class="caption-inner"> <a id="1435025828" class="caption-button dmWidget  clearfix u_1435025828" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="4"> <div index="4" class="photoGalleryThumbs animated  " data-index="4"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Salmon tataki" data-dm-force-device="mobile" class="u_1392511420" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta16.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta16-640w.jpg');"><img id="1319852039" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta16-1920w.jpg" alt="Salmon tataki" aria-label="Salmon tataki" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1707997645" class="caption-container u_1707997645" style="display:none"> <span class="caption-inner"> <a id="1153287455" class="caption-button dmWidget  clearfix u_1153287455" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="5"> <div index="5" class="photoGalleryThumbs animated  " data-index="5"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Chef preparando un plato gourmet en cocina profesional" data-dm-force-device="mobile" class="u_1640308553" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta17.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta17-640w.jpg');"><img id="1484731774" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta17-1920w.jpg" alt="Chef preparando un plato gourmet en cocina profesional" aria-label="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1169169391" class="caption-container u_1169169391" style="display:none"> <span class="caption-inner"> <a id="1215612445" class="caption-button dmWidget  clearfix u_1215612445" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-3" data-index="6"> <div index="6" class="photoGalleryThumbs animated  " data-index="6"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Sushi tower with tuna, avocado, and sauce on a black plate." data-dm-force-device="mobile" class="u_1314921217" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta53-3143a1cf.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta53-3143a1cf-640w.jpg');"><img id="1404855312" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta53-3143a1cf-1920w.jpg" alt="Sushi tower with tuna, avocado, and sauce on a black plate." aria-label="Sushi tower with tuna, avocado, and sauce on a black plate." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1361113882" class="caption-container u_1361113882" style="display:none"> <span class="caption-inner"> <a id="1805693142" class="caption-button dmWidget  clearfix u_1805693142" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="7"> <div index="7" class="photoGalleryThumbs animated  " data-index="7"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Tuna tartare appetizers on a plate with the word "love". Dark background." data-dm-force-device="mobile" class="u_1978854609" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta54.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta54-640w.jpg');"><img id="1182166496" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta54-1920w.jpg" alt="Tuna tartare appetizers on a plate with the word "love". Dark background." aria-label="Tuna tartare appetizers on a plate with the word "love". Dark background." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1107757319" class="caption-container u_1107757319" style="display:none"> <span class="caption-inner"> <a id="1288494172" class="caption-button dmWidget  clearfix u_1288494172" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="8"> <div index="8" class="photoGalleryThumbs animated  " data-index="8"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Chef preparando un plato gourmet en cocina profesional" data-dm-force-device="mobile" class="u_1545073602" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta41-71718052.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta41-71718052-640w.jpg');"><img id="1299794407" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta41-71718052-1920w.jpg" alt="Chef preparando un plato gourmet en cocina profesional" aria-label="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1301521226" class="caption-container u_1301521226" style="display:none"> <span class="caption-inner"> <a id="1549617241" class="caption-button dmWidget  clearfix u_1549617241" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-3" data-index="9"> <div index="9" class="photoGalleryThumbs animated  " data-index="9"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Avocado and tuna tartare dish on a black plate, garnished with green onion and lemon zest." data-dm-force-device="mobile" class="u_1286170144" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta20-d4f1a391.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta20-d4f1a391-640w.jpg');"><img id="1940616755" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta20-d4f1a391-1920w.jpg" alt="Avocado and tuna tartare dish on a black plate, garnished with green onion and lemon zest." aria-label="Avocado and tuna tartare dish on a black plate, garnished with green onion and lemon zest." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1723589524" class="caption-container u_1723589524" style="display:none"> <span class="caption-inner"> <a id="1890618468" class="caption-button dmWidget  clearfix u_1890618468" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="10"> <div index="10" class="photoGalleryThumbs animated  " data-index="10"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Sushi roll plate with seaweed, pickled ginger, and wasabi." data-dm-force-device="mobile" class="u_1947676508" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta42.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta42-640w.jpg');"><img id="1335339643" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta42-1920w.jpg" alt="Sushi roll plate with seaweed, pickled ginger, and wasabi." aria-label="Sushi roll plate with seaweed, pickled ginger, and wasabi." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1840222247" class="caption-container u_1840222247" style="display:none"> <span class="caption-inner"> <a id="1882118554" class="caption-button dmWidget  clearfix u_1882118554" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="11"> <div index="11" class="photoGalleryThumbs animated  " data-index="11"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Caprese salad with sliced tomatoes, mozzarella, arugula, and balsamic glaze." data-dm-force-device="mobile" class="u_1038539434" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta57.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta57-640w.jpg');"><img id="1129162514" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta57-1920w.jpg" alt="Caprese salad with sliced tomatoes, mozzarella, arugula, and balsamic glaze." aria-label="Caprese salad with sliced tomatoes, mozzarella, arugula, and balsamic glaze." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1500012704" class="caption-container u_1500012704" style="display:none"> <span class="caption-inner"> <a id="1275386028" class="caption-button dmWidget  clearfix u_1275386028" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-3" data-index="12"> <div index="12" class="photoGalleryThumbs animated  " data-index="12"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Seared tuna with sauce, avocado, cucumbers, and yellow noodles in a white bowl." data-dm-force-device="mobile" class="u_1388785429" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta29.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta29-640w.jpg');"><img id="1790206926" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta29-1920w.jpg" alt="Seared tuna with sauce, avocado, cucumbers, and yellow noodles in a white bowl." aria-label="Seared tuna with sauce, avocado, cucumbers, and yellow noodles in a white bowl." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1682500369" class="caption-container u_1682500369" style="display:none"> <span class="caption-inner"> <a id="1467889664" class="caption-button dmWidget  clearfix u_1467889664" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="13"> <div index="13" class="photoGalleryThumbs animated  " data-index="13"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Chef preparando un plato gourmet en cocina profesional" data-dm-force-device="mobile" class="u_1442691797" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta50-1b16626e.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta50-1b16626e-640w.jpg');"><img id="1731082696" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta50-1b16626e-1920w.jpg" alt="Chef preparando un plato gourmet en cocina profesional" aria-label="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1511447272" class="caption-container u_1511447272" style="display:none"> <span class="caption-inner"> <a id="1948490858" class="caption-button dmWidget  clearfix u_1948490858" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="14"> <div index="14" class="photoGalleryThumbs animated  " data-index="14"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Sushi platter on a table with a decorative box and pink ribbon, next to chopsticks, and small bowls." data-dm-force-device="mobile" class="u_1650948892" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta43.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta43-640w.jpg');"><img id="1980306662" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta43-1920w.jpg" alt="Sushi platter on a table with a decorative box and pink ribbon, next to chopsticks, and small bowls." aria-label="Sushi platter on a table with a decorative box and pink ribbon, next to chopsticks, and small bowls." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1229393232" class="caption-container u_1229393232" style="display:none"> <span class="caption-inner"> <a id="1318243267" class="caption-button dmWidget  clearfix u_1318243267" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-3" data-index="15"> <div index="15" class="photoGalleryThumbs animated  " data-index="15"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Chef preparando un plato gourmet en cocina profesional" data-dm-force-device="mobile" class="u_1678893254" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta49.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta49-640w.jpg');"><img id="1777764957" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta49-1920w.jpg" alt="Chef preparando un plato gourmet en cocina profesional" aria-label="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1092616372" class="caption-container u_1092616372" style="display:none"> <span class="caption-inner"> <a id="1780418738" class="caption-button dmWidget  clearfix u_1780418738" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="16"> <div index="16" class="photoGalleryThumbs animated  " data-index="16"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Sushi platter with a variety of seafood, garnished with lime and flowers." data-dm-force-device="mobile" class="u_1277589259" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta39.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta39-640w.jpg');"><img id="1215622906" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta39-1920w.jpg" alt="Sushi platter with a variety of seafood, garnished with lime and flowers." aria-label="Sushi platter with a variety of seafood, garnished with lime and flowers." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1310226522" class="caption-container u_1310226522" style="display:none"> <span class="caption-inner"> <a id="1332317756" class="caption-button dmWidget  clearfix u_1332317756" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="17"> <div index="17" class="photoGalleryThumbs animated  " data-index="17"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Chef preparando un plato gourmet en cocina profesional" data-dm-force-device="mobile" class="u_1153461270" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta65.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta65-640w.jpg');"><img id="1542552663" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta65-1920w.jpg" alt="Chef preparando un plato gourmet en cocina profesional" aria-label="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1457559249" class="caption-container u_1457559249" style="display:none"> <span class="caption-inner"> <a id="1138547218" class="caption-button dmWidget  clearfix u_1138547218" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-row " data-index=""> <div class="photogallery-column column-3" data-index="18"> <div index="18" class="photoGalleryThumbs animated  " data-index="18"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Creme brûlée desserts in golden ramekins, topped with strawberries and red sauce, arranged on a tray." data-dm-force-device="mobile" class="u_1173760483" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta8.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta8-640w.jpg');"><img id="1544462103" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta8-1920w.jpg" alt="Creme brûlée desserts in golden ramekins, topped with strawberries and red sauce, arranged on a tray." aria-label="Creme brûlée desserts in golden ramekins, topped with strawberries and red sauce, arranged on a tray." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1238288695" class="caption-container u_1238288695" style="display:none"> <span class="caption-inner"> <a id="1704251470" class="caption-button dmWidget  clearfix u_1704251470" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="photogallery-column column-3" data-index="19"> <div index="19" class="photoGalleryThumbs animated  " data-index="19"> <div class="thumbnailInnerWrapper" style="opacity: 1;"> <div class="image-container revealed"> <a data-dm-multisize-attr="temp" aria-label="Charcuterie platter with sliced cheeses and meats arranged on a black tray." data-dm-force-device="mobile" class="u_1806961358" data-image-url="https://irp.cdn-website.com/fac8700a/dms3rep/multi/fg_insta1.jpg" style="background-image: url('https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta1-640w.jpg');"><img id="1827244695" data-src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta1-1920w.jpg" alt="Charcuterie platter with sliced cheeses and meats arranged on a black tray." aria-label="Charcuterie platter with sliced cheeses and meats arranged on a black tray." onerror="handleImageLoadError(this)"/></a> 
+</div> 
+ <div id="1445042202" class="caption-container u_1445042202" style="display:none"> <span class="caption-inner"> <a id="1165352981" class="caption-button dmWidget  clearfix u_1165352981" href="" style=""> <span class="iconBg"> <span class="icon hasFontIcon "></span> 
+</span> 
+ <span class="text">Button</span> 
+</a> 
+</span> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="u_1020807987 dmNewParagraph" data-element-type="paragraph" data-version="5" id="1020807987" style="transition: none 0s ease 0s; text-align: left; display: block;"> <h1 class="m-text-align-center text-align-center"><span style="display: unset;">Celebrities</span></h1> 
+</div> 
+ <div class="u_1025602178 flex-container dmImageSlider dmNoMargin dmNoMark" data-widget-type="imageSlider" dmle_volatile_widget="true" data-element-type="dSliderId" id="1025602178"> <div class="flexslider ed-version nav-layout-2" sliderscriptparams="{'stretch':false,'animation':true,'randomize':false,'directionNav':true,'isAutoPlay':true,'isFade':true,'controlNav':false,'slideshowSpeed':7000,'animationDuration':600,'pausePlay':true}" id="1747793809" layout="empty"> <ul class="slides" id="1055312952"> <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1594646832"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta28-1920w.jpg" id="1793158807" alt="Man taking selfie with Salt Bae, outside MoMA. Both smiling." onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1402859691"></div> 
+ <div class="slide-inner" id="1104279923"> <div class="text-wrapper" id="1608328997"> <h3 class="slide-title" id="1929786118">Slide title</h3> 
+ <div class="slide-text richText" id="1067194266">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1890635959"> <span class="iconBg" id="1526467704"> <span class="icon hasFontIcon icon-star" id="1686342477"></span> 
+</span> 
+ <span class="text" id="1814646822">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1710173870"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta59-1920w.jpg" id="1291124294" alt="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1944317776"></div> 
+ <div class="slide-inner" id="1525915581"> <div class="text-wrapper" id="1866476888"> <h3 class="slide-title" id="1845982157">Slide title</h3> 
+ <div class="slide-text richText" id="1589026400">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1037176931"> <span class="iconBg" id="1570676394"> <span class="icon hasFontIcon icon-star" id="1570320936"></span> 
+</span> 
+ <span class="text" id="1676704227">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1330823473"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta48-1920w.jpg" id="1299058114" alt="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1133683718"></div> 
+ <div class="slide-inner" id="1758101493"> <div class="text-wrapper" id="1529588338"> <h3 class="slide-title" id="1840238629">Slide title</h3> 
+ <div class="slide-text richText" id="1266144821">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1647454532"> <span class="iconBg" id="1299356226"> <span class="icon hasFontIcon icon-star" id="1285058594"></span> 
+</span> 
+ <span class="text" id="1923918380">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1215865141"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta47-1920w.jpg" id="1175959359" alt="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1224932866"></div> 
+ <div class="slide-inner" id="1324002599"> <div class="text-wrapper" id="1187309521"> <h3 class="slide-title" id="1581657868">Slide title</h3> 
+ <div class="slide-text richText" id="1284340840">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1067870810"> <span class="iconBg" id="1196897029"> <span class="icon hasFontIcon icon-star" id="1991000559"></span> 
+</span> 
+ <span class="text" id="1034388294">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1233659069"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta40-1920w.jpg" id="1388833799" alt="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1725784721"></div> 
+ <div class="slide-inner" id="1262052005"> <div class="text-wrapper" id="1215758552"> <h3 class="slide-title" id="1178272805">Slide title</h3> 
+ <div class="slide-text richText" id="1294030474">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1414651924"> <span class="iconBg" id="1874425061"> <span class="icon hasFontIcon icon-star" id="1031432280"></span> 
+</span> 
+ <span class="text" id="1433697319">Button</span> 
+</div> 
+</div> 
+</li> 
+ <li layout="center" position="center" animation="fadeInUp" show-content="true" color-overlay="true" text-background="true" id="1724369202"><img dm="true" src="https://lirp.cdn-website.com/fac8700a/dms3rep/multi/opt/fg_insta44-1920w.jpg" id="1322192864" alt="Chef preparando un plato gourmet en cocina profesional" onerror="handleImageLoadError(this)"/> <div class="color-overlay" id="1356029334"></div> 
+ <div class="slide-inner" id="1629868885"> <div class="text-wrapper" id="1599814263"> <h3 class="slide-title" id="1823096535">Slide title</h3> 
+ <div class="slide-text richText" id="1809401273">Write your caption here</div> 
+</div> 
+ <div class="slide-button dmWidget clearfix" id="1212865187"> <span class="iconBg" id="1119538005"> <span class="icon hasFontIcon icon-star" id="1877482694"></span> 
+</span> 
+ <span class="text" id="1404721474">Button</span> 
+</div> 
+</div> 
+</li> 
+</ul> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1461874213"> <div class="dmRespColsWrapper" id="1613782082"> <div class="dmRespCol empty-column large-12 medium-12 small-12" id="1727821549"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="sticky-widgets-container-global" id="1358766918"> <a data-display-type="block" class="align-center dmButtonLink dmWidget dmWwr default dmOnlyButton dmDefaultGradient u_1371233050 sticky-desktop-position-bottom-right sticky-mobile-position-bottom-right" file="false" href="/contact-us" data-element-type="dButtonLinkId" id="1371233050" data-buttonstyle="ROUND_SIDES" link_type="popup" popup_target="contact-us"> <span class="iconBg" aria-hidden="true" id="1563156430"> <span class="icon hasFontIcon icon-star" id="1611152636"></span> 
+</span> 
+ <span class="text" id="1097218260"></span> 
+</a> 
+</div> 
+ <div class="dmFooterContainer"> <div id="fcontainer" class="u_fcontainer f_hcontainer dmFooter p_hfcontainer"> <div dm:templateorder="14" class="dmFooterResp dmFullFooterResp" id="1994310108"> <div class="dmRespRow dmDividerRow" id="1199050585"> <div class="dmRespColsWrapper" id="1963782864"> <div class="large-12 medium-12 small-12 dmRespCol" id="1986083979"> <div class="dmDividerWrapper clearfix" id="1733757521" data-element-type="dDividerId"><hr class="dmDivider defaultDivider" id="1230678657"/></div> 
+</div> 
+</div> 
+</div> 
+ <div id="1177402341" dmle_extension="powered_by" data-element-type="powered_by" icon="true" surround="false"></div> 
+ <div class="dmRespRow" id="1278348865"> <div class="dmRespColsWrapper" id="1099171102"> <div class="dmRespCol large-12 medium-12 small-12" id="1467872877"> <div class="dmRespRow dmFooterContent u_1367828450" id="1367828450"> <div class="dmRespColsWrapper" id="1313504413"> <div class="dmRespCol large-12 medium-12 small-12 dmFooterCol" id="1312638619"> <div class="u_1413253861 dmSocialHome dmSocialHub gapSpacing" id="1413253861" dmle_extension="social_hub" data-element-type="social_hub" wr="false" icon="true" surround="false"> <div class="socialHubWrapper"> <div class="socialHubInnerDiv vertical"> <a href="https://www.facebook.com/profile.php?id=100066480343768&amp;sk=about&amp;locale=es_LA" target="_blank" dm_dont_rewrite_url="true" aria-label="facebook" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Facebook&apos;)"> <span class="dmSocialFacebook dm-social-icons-facebook oneIcon socialHubIcon style9" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="mailto:fede.gastronomy@gmail.com" dm_dont_rewrite_url="true" aria-label="email" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Email&apos;)"> <span class="dmSocialEmail dm-social-icons-email oneIcon socialHubIcon style9" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+ <a href="https://instagram.com/fedegastronomy" target="_blank" dm_dont_rewrite_url="true" aria-label="instagram" onclick="dm_gaq_push_event &amp;&amp; dm_gaq_push_event(&apos;socialLink&apos;, &apos;click&apos;, &apos;Instagram&apos;)"> <span class="dmSocialInstagram dm-social-icons-instagram oneIcon socialHubIcon style9" aria-hidden="true" data-hover-effect=""></span> 
+</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+ <div class="dmRespRow" id="1246679066"> <div class="dmRespColsWrapper" id="1951996285"> <div class="dmRespCol empty-column large-12 medium-12 small-12" id="1530980105"></div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+</div> 
+
+    </div>
+</div>
+<!--  Add full CSS and Javascript before the close tag of the body if needed -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Google Fonts Include -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- loadCSS function fonts.jsp-->
+
+
+
+<link rel="preload" href="https://irp.cdn-website.com/fonts/css2?family=Josefin+Slab:wght@100..700&family=Roboto:wght@100;300;400;500;700;900&family=Spartan:wght@100;200;300;400;600;700;800;900&family=Libre+Baskerville:wght@400;700&family=Josefin+Sans:wght@100..700&family=Quicksand:wght@300..700&family=Oswald:wght@200..700&amp;subset=latin-ext&amp;display=swap"  as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+<style>
+@font-face {
+  font-family: "FontsFree-Net-arboria1";
+  src: url("https://irp.cdn-website.com/fac8700a/fonts/FontsFree-Net-arboria1-ec5e_400.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+
+
+<style>
+@font-face {
+  font-family: "FontsFree-Net-arboria2";
+  src: url("https://irp.cdn-website.com/fac8700a/fonts/FontsFree-Net-arboria2-1a16_400.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+
+
+<style>
+@font-face {
+  font-family: "FontsFree-Net-arboria1 (1)";
+  src: url("https://irp.cdn-website.com/fac8700a/fonts/FontsFree-Net-arboria1+%281%29-f4db_400.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+
+
+
+
+
+
+<!-- RT CSS Include d-css-runtime-desktop-one-package-structured-global-->
+<link rel="preload" as="style" fetchpriority="low" onload="loadCSS(this)" href="https://static.cdn-website.com/mnlt/production/6158/_dm/s/rt/dist/css/d-css-runtime-desktop-one-package-structured-global.min.css" />
+
+<!-- End of RT CSS Include -->
+
+<link rel="preload" href="https://irp.cdn-website.com/WIDGET_CSS/2f5e8c3e393d97f4558956f6abf68395.css" id="widgetCSS" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+<!-- Support `img` size attributes -->
+<style>img[width][height] {
+  height: auto;
+}</style>
+
+<!-- Support showing sticky element on page only -->
+<style>
+  body[data-page-alias="home"] #dm [data-show-on-page-only="home"] {
+    display: block !important;
+  }
+</style>
+
+<!-- This is populated in Ajax navigation -->
+<style id="pageAdditionalWidgetsCss" type="text/css">
+</style>
+
+
+
+
+<!-- Site CSS -->
+<link rel="preload" href="https://irp.cdn-website.com/fac8700a/files/fac8700a_header_withFlex_1.min.css?v=359" id="siteGlobalCss" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+
+
+<style id="customWidgetStyle" type="text/css">
+    
+</style>
+<style id="innerPagesStyle" type="text/css">
+    
+</style>
+
+
+<style
+        id="additionalGlobalCss" type="text/css"
+>
+</style>
+
+<!-- Page CSS -->
+<link rel="preload" href="https://irp.cdn-website.com/fac8700a/files/fac8700a_home_withFlex_1.min.css?v=359" id="homeCssLink" as="style" fetchpriority="low" onload="loadCSS(this)" />
+
+<style id="pagestyle" type="text/css">
+    
+</style>
+
+<style id="pagestyleDevice" type="text/css">
+    
+</style>
+
+<!-- Flex Sections CSS -->
+
+
+
+
+
+<style id="globalFontSizeStyle" type="text/css">
+    .font-size-44, .size-44, .size-44 > font { font-size: 44px !important; }.font-size-25, .size-25, .size-25 > font { font-size: 25px !important; }.font-size-24, .size-24, .size-24 > font { font-size: 24px !important; }
+</style>
+<style id="pageFontSizeStyle" type="text/css">
+</style>
+
+<!-- ========= JS Section ========= -->
+<script>
+    var isWLR = true;
+
+    window.customWidgetsFunctions = {};
+    window.customWidgetsStrings = {};
+    window.collections = {};
+    window.currentLanguage = "ENGLISH"
+    window.isSitePreview = false;
+</script>
+<script type="text/javascript">
+
+    var d_version = "production_6158";
+    var build = "2026-02-05T13_48_21";
+    window['v' + 'ersion'] = d_version;
+
+    function buildEditorParent() {
+        window.isMultiScreen = true;
+        window.editorParent = {};
+        window.previewParent = {};
+        window.assetsCacheQueryParam = "?version=2026-02-05T13_48_21";
+        try {
+            var _p = window.parent;
+            if (_p && _p.document && _p.$ && _p.$.dmfw) {
+                window.editorParent = _p;
+            } else if (_p.isSitePreview) {
+                window.previewParent = _p;
+            }
+        } catch (e) {
+
+        }
+    }
+
+    buildEditorParent();
+</script>
+
+<!-- Load jQuery -->
+<script type="text/javascript" id='d-js-jquery'
+        src="https://static.cdn-website.com/libs/jquery/jquery-3.7.0.min.js"></script>
+<!-- End Load jQuery -->
+<!-- Injecting site-wide before scripts -->
+<!-- End Injecting site-wide to the head -->
+
+
+<script>
+    var _jquery = window.$;
+
+    var jqueryAliases = ['$', 'jquery', 'jQuery'];
+
+    jqueryAliases.forEach((alias) => {
+        Object.defineProperty(window, alias, {
+            get() {
+                return _jquery;
+            },
+            set() {
+                console.warn("Trying to over-write the global jquery object!");
+            }
+        });
+    });
+    window.jQuery.migrateMute = true;
+</script>
+<script type="text/javascript">
+    window.popups =
+    [{"title":"Contact Us","url":"/contact-us","options":{"backgroundColor":"#FFFFFF","borderRadius":"5","width":"845.5078125","overlayColor":"rgba(0, 0, 0, 0.5)","height":"563"},"name":"contact-us"},{"title":"Online Scheduling","url":"/online-scheduling78969ea2","options":{"backgroundColor":"#FFFFFF","borderRadius":"5","width":"942","overlayColor":"rgba(0, 0, 0, 0.5)","height":"549"},"name":"online-scheduling78969ea2"}]</script>
+<script>
+    window.cookiesNotificationMarkupPreview = 'null';
+</script>
+
+<!-- HEAD RT JS Include -->
+<script id='d-js-params'>
+    window.INSITE = window.INSITE || {};
+    window.INSITE.device = "desktop";
+
+    window.rtCommonProps = {};
+    rtCommonProps["rt.ajax.ajaxScriptsFix"] =true;
+    rtCommonProps["rt.pushnotifs.sslframe.encoded"] = 'aHR0cHM6Ly97c3ViZG9tYWlufS5wdXNoLW5vdGlmcy5jb20=';
+    rtCommonProps["runtimecollector.url"] = 'https://rtc.multiscreensite.com';
+    rtCommonProps["performance.tabletPreview.removeScroll"] = 'false';
+    rtCommonProps["inlineEditGrid.snap"] =true;
+    rtCommonProps["popup.insite.cookie.ttl"] = '0.5';
+    rtCommonProps["rt.pushnotifs.force.button"] =true;
+    rtCommonProps["common.mapbox.token"] = 'pk.eyJ1IjoiZGFubnliMTIzIiwiYSI6ImNqMGljZ256dzAwMDAycXBkdWxwbDgzeXYifQ.Ck5P-0NKPVKAZ6SH98gxxw';
+    rtCommonProps["common.mapbox.js.override"] =false;
+    rtCommonProps["common.here.appId"] = 'iYvDjIQ2quyEu0rg0hLo';
+    rtCommonProps["common.here.appCode"] = '1hcIxLJcbybmtBYTD9Z1UA';
+    rtCommonProps["isCoverage.test"] =false;
+    rtCommonProps["ecommerce.ecwid.script"] = 'https://app.multiscreenstore.com/script.js';
+    rtCommonProps["common.resources.dist.cdn"] =true;
+    rtCommonProps["common.build.dist.folder"] = 'production/6158';
+    rtCommonProps["common.resources.cdn.host"] = 'https://static.cdn-website.com';
+    rtCommonProps["common.resources.folder"] = 'https://static.cdn-website.com/mnlt/production/6158';
+    rtCommonProps["feature.flag.runtime.backgroundSlider.preload.slowly"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.runtime.newAnimation.jitAnimation.enabled"] =true;
+    rtCommonProps["feature.flag.sites.google.analytics.gtag"] =true;
+    rtCommonProps["feature.flag.runOnReadyNewTask"] =true;
+    rtCommonProps["isAutomation.test"] =false;
+    rtCommonProps["booking.cal.api.domain"] = 'api.cal.com';
+
+    
+    rtCommonProps['common.mapsProvider'] = 'mapbox';
+    
+    rtCommonProps['common.mapsProvider.version'] = '0.52.0';
+    rtCommonProps['common.geocodeProvider'] = 'mapbox';
+    rtCommonProps['server.for.resources'] = '';
+    rtCommonProps['feature.flag.lazy.widgets'] = true;
+    rtCommonProps['feature.flag.single.wow'] = false;
+    rtCommonProps['feature.flag.disallowPopupsInEditor'] = true;
+    rtCommonProps['feature.flag.mark.anchors'] = true;
+    rtCommonProps['captcha.public.key'] = '6LffcBsUAAAAAMU-MYacU-6QHY4iDtUEYv_Ppwlz';
+    rtCommonProps['captcha.invisible.public.key'] = '6LeiWB8UAAAAAHYnVJM7_-7ap6bXCUNGiv7bBPME';
+    rtCommonProps["images.sizes.small"] =160;
+    rtCommonProps["images.sizes.mobile"] =640;
+    rtCommonProps["images.sizes.tablet"] =1280;
+    rtCommonProps["images.sizes.desktop"] =1920;
+    rtCommonProps["modules.resources.cdn"] =true;
+    rtCommonProps["import.images.storage.imageCDN"] = 'https://lirp.cdn-website.com/';
+    rtCommonProps["feature.flag.runtime.inp.threshold"] =150;
+    rtCommonProps["feature.flag.performance.logs"] =true;
+    rtCommonProps["site.widget.form.captcha.type"] = 'g_recaptcha';
+    rtCommonProps["friendly.captcha.site.key"] = 'FCMGSQG9GVNMFS8K';
+    rtCommonProps["cookiebot.mapbox.consent.category"] = 'marketing';
+    // feature flags that's used out of runtime module (in  legacy files)
+    rtCommonProps["platform.monolith.personalization.dateTimeCondition.popupMsgAction.moveToclient.enabled"] =true;
+
+    window.rtFlags = {};
+    rtFlags["unsuspendEcwidStoreOnRuntime.enabled"] =true;
+    rtFlags["scripts.widgetCount.enabled"] =true;
+    rtFlags["fnb.animations.tracking.enabled"] =true;
+    rtFlags["ecom.ecwidNewUrlStructure.enabled"] = false;
+    rtFlags["ecom.ecwid.accountPage.emptyBaseUrl.enabled"] = true;
+    rtFlags["ecom.ecwid.pages.links.disable.listeners"] = true;
+    rtFlags["ecom.ecwid.storefrontV3.enabled"] = false;
+    rtFlags["ecom.ecwid.old.store.fix.facebook.share"] = true;
+    rtFlags["feature.flag.photo.gallery.exact.size"] =true;
+    rtFlags["geocode.search.localize"] =false;
+    rtFlags["feature.flag.runtime.newAnimation.asyncInit.setTimeout.enabled"] =false;
+    rtFlags["twitter.heightLimit.enabled"] = true;
+    rtFlags["runtime.lottieOverflow"] =false;
+    rtFlags["runtime.monitoring.sentry.ignoreErrors"] = "";
+    rtFlags["streamline.monolith.personalization.supportMultipleConditions.enabled"] =false;
+    rtFlags["flex.animation.design.panel.layout"] =true;
+    rtFlags["runtime.cwv.report.cls.enabled"] =true;
+    rtFlags["runtime.cwv.report.lcp.enabled"] =false;
+    rtFlags["contact.form.useActiveForm"] =true;
+    rtFlags["contact.form.custom.errors.enabled"] =false;
+    rtFlags["runtime.ssr.productStore.internal.observer"] =true;
+    rtFlags["runtime.ssr.productCustomizations"] =true;
+    rtFlags["runtime.ssr.runtime.filter-sort.newFilterSortWidgetWithOptions.enabled"] =false;
+    rtFlags["runtime.ssr.ssrSlider.jumpThreshold.enabled"] =false;
+</script>
+<script src="https://static.cdn-website.com/mnlt/production/6158/_dm/s/rt/dist/scripts/d-js-one-runtime-unified-desktop.min.js"  id="d-js-core"></script>
+<!-- End of HEAD RT JS Include -->
+<script src="https://static.cdn-website.com/mnlt/production/6158/_dm/s/rt/dist/scripts/d-js-jquery-migrate.min.js" ></script>
+<script>
+    
+    $(window).bind("orientationchange", function (e) {
+        $.layoutManager.initLayout();
+        
+    });
+    $(document).resize(function () {
+        
+    });
+</script>
+<script type="text/javascript" id="d_track_campaign">
+(function() {
+    if (!window.location.search) {
+        return;
+    }
+	const cleanParams = window.location.search.substring(1); // Strip ?
+	const queryParams = cleanParams.split('&');
+
+	const expires = 'expires=' + new Date().getTime() + 24 * 60 * 60 * 1000;
+	const domain = 'domain=' + window.location.hostname;
+	const path = "path=/";
+
+	queryParams.forEach((param) => {
+		const [key, value = ''] = param.split('=');
+		if (key.startsWith('utm_')) {
+			const cookieName = "_dm_rt_" + key.substring(4);
+			const cookie = cookieName + "=" + value;
+			const joined = [cookie, expires, domain, path].join(";");
+			document.cookie = joined;
+		}
+	});
+}());
+</script>
+<script type="text/javascript" >
+  var _dm_gaq = {};
+  var _gaq = _gaq || [];
+  var _dm_insite = [];
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-202575558-1"></script>
+<script type="text/javascript" id="d_track_ga">
+  _dm_gaq.siteAlias = 'fac8700a';
+  _dm_gaq.systemAggregatedGaqID = '';
+  _dm_gaq.externalGaqID = 'UA-202575558-1';
+  _dm_gaq.gaAggregatedEventAttributes = {
+	  'site_alias':  _dm_gaq.siteAlias,
+	  'product': 'DM_DIRECT',
+	  'plan': 'BUSINESS_PLUS',
+	  'dfooter': 'false',
+	  'sitetype': '1',
+	  'pwaEnabled': 'true'
+  }
+
+  _dm_gaq.pushEvent = function(trackingId, event, category, label, value, additionalParams = {}) {
+	  const eventProps = {
+		  send_to: trackingId,
+		  event_category: category,
+		  event_label: label,
+		  value,
+		  ...additionalParams,
+		  ...(trackingId === _dm_gaq.systemAggregatedGaqID
+				  ? _dm_gaq.gaAggregatedEventAttributes : {})
+	  };
+	  gtag('event', event, eventProps);
+  }
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+  function pushInsiteImpressions(id) {
+	  _dm_insite.forEach((rule) => {
+		  _dm_gaq.pushEvent(id, 'insite_impression', 'insite', rule.ruleType + '__' + rule.ruleId);
+	  });
+  }
+
+if(_dm_gaq.systemAggregatedGaqID){
+	// track aggregated account
+	gtag('config', '', {
+		'send_page_view': false,
+		'anonymize_ip': true,
+		'transport_type': 'beacon',
+		'custom_map': {'dimension1': 'site_alias', 'dimension2': 'product', 'dimension3': 'dFooter', 'dimension4': 'sitetype'}
+	});
+	gtag('set', 'developer_id.dMDU5Nj', true);
+
+	_dm_gaq.pushEvent('', 'page_view');
+	pushInsiteImpressions(_dm_gaq.systemAggregatedGaqID);
+}
+
+if(_dm_gaq.externalGaqID && _dm_gaq.externalGaqID!= '') {
+	gtag('config', 'UA-202575558-1', {
+		'send_page_view': false,
+		'anonymize_ip': true,
+		'transport_type': 'beacon',
+		'linker': {
+			'domains': ['fedegastronomy.com']
+		}
+	});
+	_dm_gaq.pushEvent('UA-202575558-1', 'page_view');
+	pushInsiteImpressions(_dm_gaq.externalGaqID);
+}
+</script>
+<script type="text/javascript" id="d_track_sp">
+;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+};p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//d32hwlnfiv2gyn.cloudfront.net/sp-2.0.0-dm-0.1.min.js","snowplow"));
+window.dmsnowplow  = window.snowplow;
+
+dmsnowplow('newTracker', 'cf', 'd32hwlnfiv2gyn.cloudfront.net', { // Initialise a tracker
+  appId: 'fac8700a'
+});
+
+// snowplow queries element styles so we wait until CSS calculations are done.
+requestAnimationFrame(() => {
+	dmsnowplow('trackPageView');
+	_dm_insite.forEach((rule) => {
+		// Specifically in popup only the client knows if it is shown or not so we don't always want to track its impression here
+		// the tracking is in popup.js
+		if (rule.actionName !== "popup") {
+			dmsnowplow('trackStructEvent', 'insite', 'impression', rule.ruleType, rule.ruleId);
+		}
+		window?.waitForDeferred?.('dmAjax', () => {
+			$.DM.events.trigger('event-ruleTriggered', {value: rule});
+		});
+	});
+});
+</script>
+   <div style="display:none;" id="P6iryBW0Wu"></div>
+
+<!-- photoswipe markup -->
+
+
+
+
+
+
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="fb-root"
+        data-locale="en"></div>
+<!-- Alias: fac8700a -->
+<div class="dmPopupMask" id="dmPopupMask"></div>
+<div id="dmPopup" class="dmPopup">
+	<div class="dmPopupCloseWrapper"> <div class="dmPopupClose dm-common-icons-close oneIcon" onclick="dmHidePopup(event);"></div> </div>
+ 	<div class="dmPopupTitle"> <span></span> Share by:</div> 
+	<div class="data"></div>
+</div><script id="d_track_personalization">
+	window?.waitForDeferred?.('dmAjax', () => {
+		// Collects client data and updates cookies used by smart sites
+		window.expireDays = 365;
+		window.visitLength = 30 * 60000;
+		$.setCookie("dm_timezone_offset", (new Date()).getTimezoneOffset(), window.expireDays);
+			setSmartSiteCookiesInternal("dm_this_page_view","dm_last_page_view","dm_total_visits","dm_last_visit");
+	});
+</script>
+<script type="text/javascript">
+    
+    Parameters.NavigationAreaParams.MoreButtonText = 'MORE';
+    
+    Parameters.NavigationAreaParams.LessButtonText = 'LESS';
+    Parameters.HomeLinkText = 'Home';
+    </script>
+<!--  End Script tags -->
+<!--  Site Wide Html Markup -->
+<!--  Site Wide Html Markup -->
+</body>
+</html>
