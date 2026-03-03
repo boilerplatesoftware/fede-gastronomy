@@ -1,9 +1,23 @@
 import { blogPosts } from "@/lib/blog-data"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
 
-export default function BlogIndexPage() {
+const POSTS_PER_PAGE = 9
+
+export default function BlogIndexPage({
+    searchParams,
+}: {
+    searchParams: { page?: string }
+}) {
+    const currentPage = Number(searchParams.page) || 1
+    const totalPosts = blogPosts.length
+    const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE)
+
+    const startIndex = (currentPage - 1) * POSTS_PER_PAGE
+    const endIndex = startIndex + POSTS_PER_PAGE
+    const currentPosts = blogPosts.slice(startIndex, endIndex)
+
     return (
         <main className="min-h-screen bg-[#f2f0e9] text-[#1a1a1a] selection:bg-black selection:text-white">
             {/* Navigation */}
@@ -22,7 +36,7 @@ export default function BlogIndexPage() {
             </header>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 px-6 md:px-12 lg:px-24 py-24">
-                {blogPosts.map((post, i) => (
+                {currentPosts.map((post, i) => (
                     <Link href={`/blog/${post.slug}`} key={i} className="group block">
                         <article>
                             <div className="aspect-[4/3] w-full mb-6 overflow-hidden relative bg-neutral-200">
@@ -51,6 +65,39 @@ export default function BlogIndexPage() {
                     </Link>
                 ))}
             </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+                <div className="flex justify-center items-center gap-4 pb-24 px-6 md:px-12 lg:px-24">
+                    <Link
+                        href={currentPage > 1 ? `/blog?page=${currentPage - 1}` : "#"}
+                        className={`p-3 border border-black/10 hover:bg-black hover:text-white transition-all ${currentPage === 1 ? 'pointer-events-none opacity-20' : ''}`}
+                        aria-label="Previous page"
+                    >
+                        <ChevronLeft className="w-5 h-5" />
+                    </Link>
+
+                    <div className="flex gap-2">
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                            <Link
+                                key={pageNum}
+                                href={`/blog?page=${pageNum}`}
+                                className={`w-12 h-12 flex items-center justify-center border border-black/10 transition-all font-mono text-sm ${currentPage === pageNum ? 'bg-black text-white' : 'hover:bg-black/5'}`}
+                            >
+                                {pageNum}
+                            </Link>
+                        ))}
+                    </div>
+
+                    <Link
+                        href={currentPage < totalPages ? `/blog?page=${currentPage + 1}` : "#"}
+                        className={`p-3 border border-black/10 hover:bg-black hover:text-white transition-all ${currentPage === totalPages ? 'pointer-events-none opacity-20' : ''}`}
+                        aria-label="Next page"
+                    >
+                        <ChevronRight className="w-5 h-5" />
+                    </Link>
+                </div>
+            )}
         </main>
     )
 }
