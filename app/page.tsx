@@ -5,6 +5,7 @@ import { ServicesSection } from "@/components/services-section"
 import { MenuHighlights } from "@/components/menu-highlights"
 import { ChefEnterprise } from "@/components/chef-enterprise"
 import { BlogEditorial } from "@/components/blog-editorial"
+import { NewsletterSection } from "@/components/newsletter-section"
 import { BookingEngine } from "@/components/booking-engine"
 import { Footer } from "@/components/footer"
 import { Sidebar } from "@/components/sidebar"
@@ -30,6 +31,7 @@ export default function Home() {
       </div>
 
       <BlogEditorial />
+      <NewsletterSection />
       <Footer />
 
       <AnimatePresence>
