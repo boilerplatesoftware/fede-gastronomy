@@ -28,13 +28,21 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
     const [details, setDetails] = useState({ occasion: "", dietary: "" })
     const [contact, setContact] = useState({ name: "", email: "", phone: "" })
     const [budget, setBudget] = useState<string>("")
+    const [errors, setErrors] = useState({ email: false, phone: false })
+
+    const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    const PHONE_REGEX = /^\+?[0-9\s\-\(\).]{7,20}$/
 
     const canProceed = () => {
         switch (step) {
             case Step.DATE: return selectedDate !== null
             case Step.GUESTS: return guestCount !== null
             case Step.DETAILS: return details.occasion.trim() !== "" && details.dietary.trim() !== ""
-            case Step.CONTACT: return contact.name !== "" && contact.email !== "" && contact.phone !== "" && budget !== ""
+            case Step.CONTACT: {
+                const isEmailValid = EMAIL_REGEX.test(contact.email)
+                const isPhoneValid = PHONE_REGEX.test(contact.phone)
+                return contact.name.trim() !== "" && isEmailValid && isPhoneValid && budget !== ""
+            }
             default: return true
         }
     }
@@ -91,9 +99,47 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
         }
     }, [isOpen])
 
-    const nextStep = () => {
-        setDirection(1)
-        setStep((prev) => Math.min(prev + 1, Step.CONFIRM))
+    const [isLoading, setIsLoading] = useState(false)
+
+    const nextStep = async () => {
+        if (step === Step.CONTACT) {
+            setIsLoading(true)
+            try {
+                const res = await fetch("/api/reservations/confirm", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        reservationId: `RES-${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+                        customerEmail: contact.email,
+                        customerName: contact.name,
+                        date: selectedDate?.toLocaleDateString(),
+                        time: "TBD", // Component currently doesn't have time selection, placeholder
+                        guests: guestCount,
+                        location: "Fede Gastronomy (Venue/Private)",
+                        menuName: details.occasion,
+                        total: budget,
+                        notes: details.dietary
+                    }),
+                })
+
+                if (!res.ok) {
+                    const data = await res.json().catch(() => ({}));
+                    console.error("API error:", data);
+                    throw new Error(data?.error || "Failed to send reservation");
+                }
+
+                setDirection(1)
+                setStep(Step.CONFIRM)
+            } catch (error) {
+                console.error("Booking Error:", error)
+                // Optionally show a toast error here
+            } finally {
+                setIsLoading(false)
+            }
+        } else {
+            setDirection(1)
+            setStep((prev) => Math.min(prev + 1, Step.CONFIRM))
+        }
     }
 
     const prevStep = () => {
@@ -259,7 +305,7 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
                                                 const isSelected = guestCount === num
                                                 return (
                                                     <button
-                                                        key={i}
+                                                        key={num.toString()}
                                                         onClick={() => setGuestCount(num)}
                                                         className={`flex justify-between items-center w-full px-6 py-5 border-b transition-all duration-300 group text-left ${isSelected
                                                             ? "bg-white text-black border-white pl-8"
@@ -335,9 +381,15 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
                                                     <input
                                                         type="tel"
                                                         value={contact.phone}
-                                                        onChange={(e) => setContact({ ...contact, phone: e.target.value })}
+                                                        onChange={(e) => {
+                                                            const val = e.target.value.replace(/[^0-9\s\-\+\(\)\.]/g, '')
+                                                            setContact({ ...contact, phone: val })
+                                                        }}
                                                         placeholder="+1 (555) 000-0000"
-                                                        className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder-white/20 focus:outline-none focus:border-white transition-colors font-serif text-lg"
+                                                        className={`w-full bg-transparent border-b py-3 text-white placeholder-white/20 focus:outline-none transition-colors font-serif text-lg ${contact.phone && !PHONE_REGEX.test(contact.phone)
+                                                            ? "border-red-500/50"
+                                                            : "border-white/20 focus:border-white"
+                                                            }`}
                                                     />
                                                 </div>
                                             </div>
@@ -349,7 +401,10 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
                                                     value={contact.email}
                                                     onChange={(e) => setContact({ ...contact, email: e.target.value })}
                                                     placeholder="email@example.com"
-                                                    className="w-full bg-transparent border-b border-white/20 py-3 text-white placeholder-white/20 focus:outline-none focus:border-white transition-colors font-serif text-lg"
+                                                    className={`w-full bg-transparent border-b py-3 text-white placeholder-white/20 focus:outline-none transition-colors font-serif text-lg ${contact.email && !EMAIL_REGEX.test(contact.email)
+                                                        ? "border-red-500/50"
+                                                        : "border-white/20 focus:border-white"
+                                                        }`}
                                                 />
                                             </div>
 
@@ -361,8 +416,8 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
                                                             key={opt}
                                                             onClick={() => setBudget(opt)}
                                                             className={`py-3 px-4 text-xs uppercase tracking-widest border transition-all ${budget === opt
-                                                                    ? "bg-[#D4AF37] text-black border-[#D4AF37] font-bold"
-                                                                    : "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
+                                                                ? "bg-[#D4AF37] text-black border-[#D4AF37] font-bold"
+                                                                : "border-white/20 text-white/60 hover:border-white/50 hover:text-white"
                                                                 }`}
                                                         >
                                                             {opt}
@@ -413,12 +468,12 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
                                     </button>
                                     <button
                                         onClick={nextStep}
-                                        disabled={!canProceed()}
-                                        className="group flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                                        disabled={!canProceed() || isLoading}
+                                        className="group flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-black text-xs uppercase tracking-widest font-bold hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[180px] justify-center"
                                         aria-label="Next Step"
                                     >
-                                        {step === Step.CONTACT ? "Submit Request" : "Continue"}
-                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        {isLoading ? "Sending..." : step === Step.CONTACT ? "Submit Request" : "Continue"}
+                                        {!isLoading && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
                                     </button>
                                 </div>
                             )}

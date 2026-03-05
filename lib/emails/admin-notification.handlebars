@@ -1,0 +1,44 @@
+<h1>Reservation Notification</h1>
+<div class="divider"></div>
+
+<p class="body-text">
+    Chef, a new high-priority reservation request has been formalized. Here are the details for your review:
+</p>
+
+<div class="card">
+    <div class="detail-row">
+        <span class="label">Reservation ID</span>
+        <span class="value">#{{reservationId}}</span>
+    </div>
+    <div class="detail-row">
+        <span class="label">Client</span>
+        <span class="value">{{customerName}} ({{customerEmail}})</span>
+    </div>
+    <div class="detail-row">
+        <span class="label">Planning</span>
+        <span class="value">{{date}} at {{time}}</span>
+    </div>
+    <div class="detail-row">
+        <span class="label">Occasion</span>
+        <span class="value">{{menuName}}</span>
+    </div>
+    <div class="detail-row">
+        <span class="label">Estimated Investment</span>
+        <span class="value">{{total}}</span>
+    </div>
+</div>
+
+<div class="card" style="border-left: 2px solid #D4AF37;">
+    <span class="label">Notes & Requirements</span>
+    <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-top: 10px;">
+        {{#if notes}}
+        {{notes}}
+        {{else}}
+        No additional notes provided.
+        {{/if}}
+    </p>
+</div>
+
+<div style="text-align: center; margin-top: 40px;">
+    <a href="mailto:{{customerEmail}}" class="gold-button">Contact Client</a>
+</div>

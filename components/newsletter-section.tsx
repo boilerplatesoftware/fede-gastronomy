@@ -85,7 +85,7 @@ export function NewsletterSection() {
                                     type="text"
                                     value={firstName}
                                     onChange={(e) => setFirstName(e.target.value)}
-                                    placeholder="First Name"
+                                    placeholder="Names"
                                     disabled={status === "loading" || status === "success"}
                                     className="w-full bg-transparent border-b border-white/20 py-4 px-2 text-white font-light focus:outline-none focus:border-[#D4AF37] transition-colors placeholder:text-white/20 disabled:opacity-50"
                                 />
