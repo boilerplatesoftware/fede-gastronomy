@@ -28,6 +28,7 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
     const [details, setDetails] = useState({ occasion: "", dietary: "" })
     const [contact, setContact] = useState({ name: "", email: "", phone: "" })
     const [budget, setBudget] = useState<string>("")
+    const [emailError, setEmailError] = useState<string | null>(null)
     const [errors, setErrors] = useState({ email: false, phone: false })
 
     const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -81,6 +82,7 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
                 setDetails({ occasion: "", dietary: "" })
                 setContact({ name: "", email: "", phone: "" })
                 setBudget("")
+                setEmailError(null)
                 setDirection(1)
             }, 500) // Wait for exit animation
             return () => clearTimeout(timer)
@@ -126,6 +128,11 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
                     const data = await res.json().catch(() => ({}));
                     console.error("API error:", data);
                     throw new Error(data?.error || "Failed to send reservation");
+                }
+
+                const data = await res.json();
+                if (!data.customerEmailSent) {
+                    setEmailError(data.customerError || "Email delivery restricted in testing mode.");
                 }
 
                 setDirection(1)
@@ -447,11 +454,18 @@ export function BookingEngine({ isOpen, onClose }: BookingEngineProps) {
                                             >
                                                 <Check className="w-8 h-8 text-[#D4AF37]" />
                                             </motion.div>
-                                            <div className="space-y-2">
+                                            <div className="space-y-4">
                                                 <h3 className="text-3xl font-serif text-white">Request Received</h3>
                                                 <p className="text-white/50 max-w-xs mx-auto">
                                                     Thank you, {contact.name.split(' ')[0]}. Our concierge will review your request and reach out at {contact.email} within 2 hours.
                                                 </p>
+                                                {emailError && (
+                                                    <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/20 p-4 rounded-lg mt-6 max-w-xs mx-auto text-left">
+                                                        <p className="text-[#D4AF37] text-xs font-serif italic">
+                                                            Note: We received your request, but the confirmation email could not be sent. This is common in testing mode. Don't worry, Chef Fede has been notified!
+                                                        </p>
+                                                    </div>
+                                                )}
                                             </div>
                                         </motion.div>
                                     )}

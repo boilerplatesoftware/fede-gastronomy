@@ -4,8 +4,8 @@ import fs from "fs";
 import path from "path";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 function compileTemplate(templateName, data) {
     const baseTemplatePath = path.join(process.cwd(), "lib/emails/base.handlebars");
@@ -38,9 +38,14 @@ export async function POST(req) {
             notes,
         } = body;
 
-        if (!process.env.RESEND_API_KEY) {
+        const apiKey = process.env.RESEND_API_KEY;
+
+        if (!apiKey) {
             return Response.json({ error: "Missing RESEND_API_KEY" }, { status: 500 });
         }
+
+        const resend = new Resend(apiKey);
+
 
         const adminEmail = process.env.ADMIN_EMAIL;
         const from = process.env.FROM_EMAIL;
@@ -94,6 +99,8 @@ export async function POST(req) {
         }
 
         // 2) customer
+        let customerEmailSent = false;
+        let customerError = null;
         try {
             const customerHtml = compileTemplate("customer-confirmation", templateData);
             customerResult = await resend.emails.send({
@@ -105,18 +112,21 @@ export async function POST(req) {
 
             if (customerResult.error) {
                 console.error("CUSTOMER RESEND ERROR:", customerResult.error);
-                return Response.json({
-                    error: "Customer email failed",
-                    details: customerResult.error,
-                    adminResult: adminResult.data
-                }, { status: 400 });
+                customerError = customerResult.error.message || String(customerResult.error);
+            } else {
+                customerEmailSent = true;
             }
         } catch (e) {
             console.error("CUSTOMER SEND EXCEPTION:", e);
-            return Response.json({ error: "Customer email exception", details: String(e), adminResult }, { status: 500 });
+            customerError = String(e);
         }
 
-        return Response.json({ ok: true, adminResult, customerResult });
+        return Response.json({
+            ok: true,
+            adminResult: adminResult.data || adminResult,
+            customerEmailSent,
+            customerError
+        });
     } catch (error) {
         console.error("Resend/Handlebars Error:", error);
         return Response.json(
