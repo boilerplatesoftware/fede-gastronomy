@@ -24,7 +24,7 @@ export function ChefEnterprise() {
                     <div className="absolute inset-0 border border-white/10 translate-x-4 translate-y-4" />
                     <div className="relative h-full w-full overflow-hidden bg-neutral-900 grayscale hover:grayscale-0 transition-all duration-700">
                         <Image
-                            src="/open-flame-cooking-dramatic-lighting.jpg" // Placeholder until real image
+                            src="/HeroPicture.png"
                             alt="Chef Federico Aristizábal"
                             fill
                             className="object-cover"

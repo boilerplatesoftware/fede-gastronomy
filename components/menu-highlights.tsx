@@ -7,27 +7,27 @@ import Image from "next/image"
 const dishes = [
     {
         id: "01",
-        name: "Classic Steak Tartare",
-        desc: "Hand-cut beef tenderloin, cornichons, capers, organic egg yolk. Served with artisan crisps.",
-        image: "/minimalist-plated-dish-black-background.jpg"
+        name: "Tempura Golden Crunch Salmon Roll with Spicy Mayo",
+        desc: "HA golden, tempura crisp roll filled with salmon and creamy avocado, finished with a silky spicy mayo drizzle and a sprinkle of fresh chives bold, crunchy, and perfectly balanced in every bite.",
+        image: "/IMG_1459.jpg"
     },
     {
         id: "02",
-        name: "Seared Filet Mignon",
-        desc: "Pea purée, heirloom carrot reduction, edible flower petals. A study in texture and color.",
-        image: "/winter-vegetables-root-vegetables-dark-moody.jpg"
+        name: "Thanksgiving Signature Spread",
+        desc: "A complete chef curated spread featuring seasonal salads, roasted proteins, artisanal sauces, and a charcuterie & cheese board perfect for elevated hosting.",
+        image: "/FebGas-Dec2-252211.jpeg"
     },
     {
         id: "03",
-        name: "Kanafeh",
-        desc: "Middle Eastern spun pastry, sweet cheese, rose water syrup, garnished with pistachios and floral notes.",
-        image: "/minimalist-plated-dish-black-background.jpg"
+        name: "Shiso Tempura Prawns Tartare & Caviar",
+        desc: "Crisp shiso tempura prawns paired with a delicate prawn tartare, finished with a bright citrus kissed dressing and a crown of caviar clean, briny, and beautifully layered in texture.",
+        image: "/IMG_8256.jpg"
     },
     {
         id: "04",
-        name: "Tempura Prawns",
-        desc: "Lightly battered, served on cedar wood with a yuzu-chili emulsion.",
-        image: "/winter-vegetables-root-vegetables-dark-moody.jpg"
+        name: "Avocado Fan Tartare with Truffle Soy Emulsion",
+        desc: "Fan sliced avocado topped with hand cut tartare, finished with a silky truffle soy emulsion and fresh scallions for a clean, umami rich bite.",
+        image: "/IMG_3933.png"
     },
 ]
 
