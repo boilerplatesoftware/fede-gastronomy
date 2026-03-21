@@ -17,7 +17,7 @@ export const services: Service[] = [
         description: "Intimate tasting menus and seated dinners brought to your residence. A journey through flavor, tailored to your palate.",
         longDescription: "Elevate your private gatherings with a bespoke culinary experience. Chef Federico Aristizábal brings the refinement of Michelin-starred dining to the comfort of your home. From initial consultation to final presentation, every detail is meticulously curated to reflect your preferences and the season's finest offerings.",
         tags: ["Tasting Menus", "Wine Pairing", "Storytelling"],
-        image: "/elegant-black-and-white-portrait-of-male-chef-in-d.jpg",
+        image: "/HeroPicture.jpg",
         conciergeMessage: "I'm interested in the Private Chef Experience. I'd like to discuss a potential booking."
     },
     {
@@ -37,7 +37,7 @@ export const services: Service[] = [
         description: "Operational optimization and menu development for hospitality brands. We align culinary identity with business goals.",
         longDescription: "Transform your hospitality brand with expert culinary guidance. We specialize in menu optimization, kitchen efficiency, and brand identity alignment. Our consulting services help you bridge the gap between creative vision and business profitability.",
         tags: ["Menu Design", "Ops", "Brand Identity"],
-        image: "/open-flame-cooking-dramatic-lighting.jpg",
+        image: "/IMG_8256.jpg",
         conciergeMessage: "I'm interested in Culinary Consulting. I'd like to schedule a strategy session."
     },
     {

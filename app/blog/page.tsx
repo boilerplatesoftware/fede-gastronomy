@@ -1,15 +1,22 @@
-import { blogPosts } from "@/lib/blog-data"
+import { getBlogPosts } from "@/lib/blog-data"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: "Journal | Thoughts on Sourcing, Philosophy & Gastronomy",
+    description: "Explore the culinary journals of Federico Aristizabal. Deep dives into the art of the truffle hunt, the architecture of plating, and stories from kitchens around the world.",
+}
 
 const POSTS_PER_PAGE = 9
 
-export default function BlogIndexPage({
+export default async function BlogIndexPage({
     searchParams,
 }: {
     searchParams: { page?: string }
 }) {
+    const blogPosts = await getBlogPosts()
     const currentPage = Number(searchParams.page) || 1
     const totalPosts = blogPosts.length
     const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE)

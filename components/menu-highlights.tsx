@@ -27,7 +27,7 @@ const dishes = [
         id: "04",
         name: "Avocado Fan Tartare with Truffle Soy Emulsion",
         desc: "Fan sliced avocado topped with hand cut tartare, finished with a silky truffle soy emulsion and fresh scallions for a clean, umami rich bite.",
-        image: "/IMG_3933.png"
+        image: "/IMG_3933.jpg"
     },
 ]
 

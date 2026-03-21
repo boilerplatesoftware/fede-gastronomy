@@ -25,7 +25,7 @@ export function HeroEditorial({ onOpenBooking }: HeroEditorialProps) {
 
                     {/* Fallback/Primary Image: Dark, dramatic chef portrait */}
                     <Image
-                        src="/open-flame-cooking-dramatic-lighting.jpg"
+                        src="/IMG_8256.jpg"
                         alt="Cinematic Chef Background"
                         fill
                         className="object-cover opacity-60"

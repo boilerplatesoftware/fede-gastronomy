@@ -1,8 +1,9 @@
-import { blogPosts, BlogPost } from "@/lib/blog-data"
+import { getBlogPosts, BlogPost } from "@/lib/blog-data"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 import { notFound } from "next/navigation"
+import { Metadata } from "next"
 
 interface Props {
     params: Promise<{
@@ -10,7 +11,46 @@ interface Props {
     }>
 }
 
-export function generateStaticParams() {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { slug } = await params
+    const blogPosts = await getBlogPosts()
+    const post = blogPosts.find((p) => p.slug === slug)
+
+    if (!post) {
+        return {
+            title: 'Post Not Found',
+        }
+    }
+
+    return {
+        title: post.title,
+        description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            type: 'article',
+            publishedTime: post.date,
+            authors: ['Federico Aristizabal'],
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+            images: [post.image],
+        },
+    }
+}
+
+export async function generateStaticParams() {
+    const blogPosts = await getBlogPosts()
     return blogPosts.map((post) => ({
         slug: post.slug,
     }))
@@ -18,6 +58,7 @@ export function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params
+    const blogPosts = await getBlogPosts()
     const post = blogPosts.find((p) => p.slug === slug)
 
     if (!post) {
@@ -30,8 +71,6 @@ export default async function BlogPostPage({ params }: Props) {
 
     return (
         <article className="min-h-screen bg-[#f2f0e9] text-[#1a1a1a] selection:bg-black selection:text-white">
-            {/* Scroll Progress (Optional minimalist touch) */}
-
             {/* Navigation */}
             <nav className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50 mix-blend-difference text-white">
                 <Link href="/" className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] hover:opacity-70 transition-opacity">

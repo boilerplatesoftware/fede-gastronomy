@@ -3,9 +3,13 @@ import { ArrowUpRight } from "lucide-react"
 
 import Image from "next/image"
 import Link from "next/link"
-import { blogPosts } from "@/lib/blog-data"
+import { BlogPost } from "@/lib/blog-data"
 
-export function BlogEditorial() {
+interface BlogEditorialProps {
+    posts: BlogPost[]
+}
+
+export function BlogEditorial({ posts }: BlogEditorialProps) {
     return (
         <section className="py-24 px-6 md:px-12 lg:px-24 bg-secondary/30">
             <div className="flex justify-between items-end mb-16 px-2">
@@ -18,7 +22,7 @@ export function BlogEditorial() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {blogPosts.map((post, i) => (
+                {posts.slice(0, 3).map((post, i) => (
                     <Link href={`/blog/${post.slug}`} key={i} className="block h-full">
                         <motion.article
                             initial={{ opacity: 0, y: 20 }}

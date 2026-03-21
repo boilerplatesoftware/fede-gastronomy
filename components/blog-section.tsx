@@ -26,7 +26,7 @@ const blogPosts = [
     title: "Fire & Time",
     excerpt: "Mastering the ancient craft of open-flame cooking in a modern kitchen.",
     date: "Nov 2025",
-    image: "/open-flame-cooking-dramatic-lighting.jpg",
+    image: "/IMG_8256.jpg",
   },
 ]
 
